@@ -4,7 +4,15 @@ public class TowerNetworkManager : MonoBehaviour
 {
     TrackedLinkedList<GameObject> towers = new TrackedLinkedList<GameObject>();
 
-    private void Start()
+    /// <summary>
+    /// Retrieves the currently selected tower.
+    /// </summary>
+    public GameObject CurrentTower
+    {
+        get => towers.CurrentValue;
+    }
+
+    public void Start()
     {
         foreach (Transform child in transform)
         {
