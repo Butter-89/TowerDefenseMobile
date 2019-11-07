@@ -6,21 +6,33 @@ public class Camera_gyro : MonoBehaviour
 {
     // Start is called before the first frame update
   public  Camera camera;
-  Gyroscope gyroscope;
+    public float rotationSpeed = 100.0f;
+    float xRot, yRot, zRot;
+    public float rotSpeed = 20f;
+    Gyroscope gyroscope;
     void Start()
     {
         camera = GetComponent<Camera>();
         Input.gyro.enabled = true;
+        rotationSpeed = Time.deltaTime * rotationSpeed;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        gyroCameraController();
+        xRot = Input.acceleration.z * -180f;
+        // This tilts like a driving wheel to make it like shaking head no
+        yRot = Input.acceleration.x * -180f;
+        zRot = 0f;
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(xRot, 0, zRot)), Time.deltaTime * rotSpeed);
+        //gyroCameraController();
     }
     void gyroCameraController()
     {
-        camera.transform.rotation = new Quaternion(0,-Input.acceleration.y*Time.deltaTime*1.0f,Input.acceleration.z*Time.deltaTime*2f,0);
+
+        Debug.Log(Input.acceleration);
+        
     }
     private static Quaternion GyroToUnity(Quaternion gyroValues)
     {
