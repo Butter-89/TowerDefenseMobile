@@ -10,7 +10,8 @@ public class TowerNetworkManager : MonoBehaviour
         {
             towers.Add(child.gameObject);
         }
-        towers.GoToNext();
+        // If we have towers already, set the first to be active
+        towers.CurrentValue?.SetActive(true);
 #if UNITY_EDITOR
         Debug.Log($"Current tower is {towers.CurrentValue}");
 #endif
@@ -18,7 +19,9 @@ public class TowerNetworkManager : MonoBehaviour
 
     void GoToNext()
     {
+        towers.CurrentValue.SetActive(false);
         towers.GoToNext();
+        towers.CurrentValue.SetActive(true);
     }
 
     void GoToPrevious()
