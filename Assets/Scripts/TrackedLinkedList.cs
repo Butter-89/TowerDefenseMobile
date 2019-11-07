@@ -69,6 +69,7 @@ public class TrackedLinkedList<T> : IEnumerable
     public void AddObjectAfterCurrent(T value)
     {
         objects.AddAfter(current, value);
+        SetFirst();
     }
 
     /// <summary>
@@ -78,6 +79,7 @@ public class TrackedLinkedList<T> : IEnumerable
     public void AddObjectBeforeCurrent(T value)
     {
         objects.AddBefore(current, value);
+        SetFirst();
     }
 
     /// <summary>
@@ -87,6 +89,7 @@ public class TrackedLinkedList<T> : IEnumerable
     public void AddObjectAtEnd(T value)
     {
         objects.AddLast(value);
+        SetFirst();
     }
 
     /// <summary>
@@ -96,6 +99,7 @@ public class TrackedLinkedList<T> : IEnumerable
     public void AddObjectAtStart(T value)
     {
         objects.AddFirst(value);
+        SetFirst();
     }
 
     /// <summary>
