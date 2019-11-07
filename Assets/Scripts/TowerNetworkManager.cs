@@ -1,8 +1,18 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class TowerNetworkManager : MonoBehaviour
 {
     TrackedLinkedList<GameObject> towers = new TrackedLinkedList<GameObject>();
+
+    [System.Serializable]
+    public class TowerChangedEvent : UnityEvent<string> { }
+
+    /// <summary>
+    /// Fires whenever the selected tower is changed. The string sent is either
+    /// "next" or "previous", depending on the direction moved.
+    /// </summary>
+    public TowerChangedEvent OnTowerChange;
 
     /// <summary>
     /// Retrieves the currently selected tower.
@@ -30,6 +40,7 @@ public class TowerNetworkManager : MonoBehaviour
         towers.CurrentValue.SetActive(false);
         towers.GoToNext();
         towers.CurrentValue.SetActive(true);
+        OnTowerChange.Invoke("next");
     }
 
     public void GoToPrevious()
@@ -37,6 +48,7 @@ public class TowerNetworkManager : MonoBehaviour
         towers.CurrentValue.SetActive(false);
         towers.GoToPrevious();
         towers.CurrentValue.SetActive(true);
+        OnTowerChange.Invoke("previous");
     }
     
     /// <summary>
