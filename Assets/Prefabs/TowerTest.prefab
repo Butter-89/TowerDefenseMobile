@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 115755455972737370}
   - component: {fileID: 3026622846162825621}
   - component: {fileID: 480020705571515031}
+  - component: {fileID: 897032866}
   m_Layer: 0
-  m_Name: Tower
+  m_Name: TowerTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,6 +94,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &897032866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475076672835208806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f5c9e9d7959a8945b0d9c2eab36d48e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 0}
+  shootFrom: {fileID: 1970288911580189468}
+  FireRate: 1
 --- !u!1 &3821907538236327276
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +214,7 @@ GameObject:
   - component: {fileID: 227544717379568784}
   - component: {fileID: 8857022324667554503}
   - component: {fileID: 8493312940160457905}
+  - component: {fileID: 576141333}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -280,3 +297,15 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &576141333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613358425686449639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e7db4bdf0fc1444908d627b7a9c0a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
