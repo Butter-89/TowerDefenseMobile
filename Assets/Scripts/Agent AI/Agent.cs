@@ -3,26 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+public enum State {ToNextNode, ReachFinalNode};
 public class Agent : MonoBehaviour
 {
-    public Node current_node;
+    public State agent_state;
+    public Node to_node;
+    public GameObject next_node;
+    public float speed;
+    public bool b_groundNav;
     //public List<GameObject> wayPoints;
     private NavMeshAgent agent;
     
     private void Start()
     {
+        agent_state = State.ToNextNode;
         agent = GetComponent<NavMeshAgent>();
-        if(agent!=null)
+        if(agent!=null && b_groundNav)
         {
             agent.enabled = true;
             agent.isStopped = false;
-            if (current_node != null)
-                agent.SetDestination(current_node.transform.position);
+            if (to_node != null)
+                agent.SetDestination(to_node.transform.position);
         }
     }
     void Update()
     {
-        
+        switch (agent_state)
+        {
+            case State.ToNextNode:
+                if (to_node != null)
+                {
+                    Vector3 translate_dir = to_node.transform.position - this.transform.position;
+                    transform.Translate(translate_dir.normalized * speed * Time.deltaTime, Space.World);
+                }
+                if (Vector3.Distance(transform.position, to_node.transform.position) <= 0.1f)
+                {
+                    agent_state = State.ReachFinalNode;
+                }
+                break;
+            case State.ReachFinalNode:
+                break;
+        }
     } 
 
     private void OnTriggerEnter(Collider other)
@@ -32,8 +53,21 @@ public class Agent : MonoBehaviour
         //Debug.Log("Trigger: " + other.name);
         if (nextNode != null)
         {
-            current_node = nextNode;
-            SetAgentDestination(current_node); //???
+            to_node = nextNode;
+            //SetAgentDestination(to_node); //???
+        }
+        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collision!");
+        ProjectileMovement pm = collision.collider.GetComponentInParent<ProjectileMovement>();
+        if (pm)
+        {
+            //this.enabled = false;
+            Destroy(pm.gameObject);
+            Destroy(this.gameObject);
         }
         
     }
