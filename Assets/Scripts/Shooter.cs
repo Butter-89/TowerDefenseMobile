@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
     public GameObject projectile;
-
+    public Transform shootFrom;
     /// <summary>
     /// The rate at which a projectile is fired.
     /// </summary>
@@ -15,15 +13,14 @@ public class Shooter : MonoBehaviour
     void Start()
     {
         Invoke("Shoot", FireRate);
+        shootFrom = shootFrom ?? gameObject.transform;
     }
 
     public void Shoot()
     {
-        //projectile.transform.position = gameObject.transform.position;
-        //projectile.transform.rotation = gameObject.transform.rotation;
         var launched = Instantiate(projectile);
-        launched.transform.position = gameObject.transform.position;
-        launched.transform.rotation = gameObject.transform.rotation;
+        launched.transform.position = shootFrom.position;
+        launched.transform.rotation = shootFrom.rotation;
         launched.SetActive(true);
         Invoke("Shoot", FireRate);
     }
