@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Balaji_Scene.unity
+    guid: bdf9a0e2d7a79ee45b5ec08e07d4bfde
   m_configObjects: {}
