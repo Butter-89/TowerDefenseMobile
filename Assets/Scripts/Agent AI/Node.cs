@@ -5,15 +5,16 @@ using UnityEngine;
 public class Node : MonoBehaviour
 {
     public List<Node> linkedNodes;
+
+
     public Node GetNextNode()
     {
-        if(linkedNodes[0]!=null)
+        if(linkedNodes.Count>0 && linkedNodes[0]!=null)
         {
             return linkedNodes[0];
         }
         return null;
     }
-
 
 #if UNITY_EDITOR
     /// Draws the links between nodes for editor purposes
