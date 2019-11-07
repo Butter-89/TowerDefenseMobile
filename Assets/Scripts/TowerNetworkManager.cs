@@ -17,14 +17,14 @@ public class TowerNetworkManager : MonoBehaviour
 #endif
     }
 
-    void GoToNext()
+    public void GoToNext()
     {
         towers.CurrentValue.SetActive(false);
         towers.GoToNext();
         towers.CurrentValue.SetActive(true);
     }
 
-    void GoToPrevious()
+    public void GoToPrevious()
     {
         towers.CurrentValue.SetActive(false);
         towers.GoToPrevious();
@@ -36,7 +36,7 @@ public class TowerNetworkManager : MonoBehaviour
     /// not this network, it will set it to this network.
     /// </summary>
     /// <param name="tower">The tower to add to this network.</param>
-    void CreateTower(GameObject tower)
+    public void CreateTower(GameObject tower)
     {
         if (tower.transform.parent != transform)
             tower.transform.parent = transform;
