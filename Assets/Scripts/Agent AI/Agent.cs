@@ -5,8 +5,10 @@ using UnityEngine.AI;
 
 public class Agent : MonoBehaviour
 {
+    public Node current_node;
+    //public List<GameObject> wayPoints;
     private NavMeshAgent agent;
-    public List<GameObject> wayPoints;
+    
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -14,22 +16,31 @@ public class Agent : MonoBehaviour
         {
             agent.enabled = true;
             agent.isStopped = false;
-            if (wayPoints[0] != null)
-                agent.SetDestination(wayPoints[0].transform.position);
+            if (current_node != null)
+                agent.SetDestination(current_node.transform.position);
         }
     }
     void Update()
     {
         
-    }
+    } 
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger: " + other.name);
-        if (other.transform.GetComponent<Node>())
+        Node nextNode = other.transform.GetComponent<Node>().GetNextNode();
+        //Debug.Log("Next node: " + nextNode.name);
+        //Debug.Log("Trigger: " + other.name);
+        if (nextNode != null)
         {
-            
+            current_node = nextNode;
+            SetAgentDestination(current_node); //???
         }
+        
+    }
+
+    public void SetAgentDestination(Node i_nextNode)
+    {
+        agent.SetDestination(i_nextNode.transform.position);
     }
 
 }
