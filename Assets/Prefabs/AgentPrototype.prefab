@@ -129,7 +129,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b5ffb91b2856246b2e2e85b5e52f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current_node: {fileID: 0}
+  agent_state: 0
+  to_node: {fileID: 0}
+  next_node: {fileID: 0}
+  speed: 0
+  b_groundNav: 0
 --- !u!54 &1629078913
 Rigidbody:
   m_ObjectHideFlags: 0
