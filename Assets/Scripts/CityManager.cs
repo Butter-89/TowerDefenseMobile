@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class CityManager : MonoBehaviour
 {
@@ -15,6 +16,16 @@ public class CityManager : MonoBehaviour
         get => CityHealth / (float)maxHealth * 100;
     }
 
+    [System.Serializable]
+    public class AreaAttackedEvent : UnityEvent { }
+
+    public AreaAttackedEvent OnAreaAttacked;
+
+    [System.Serializable]
+    public class AreaDestroyedEvent : UnityEvent { }
+
+    public AreaDestroyedEvent OnAreaDestroyed;
+
     public void Start()
     {
         maxHealth = CityHealth;
@@ -27,10 +38,12 @@ public class CityManager : MonoBehaviour
         {
             Destroy(parent.gameObject);
             --CityHealth;
+            OnAreaAttacked.Invoke();
             // Game over
             if (CityHealth == 0)
             {
                 Debug.Log("Game over");
+                OnAreaDestroyed.Invoke();
                 gameObject.SetActive(false);
             }
         }
