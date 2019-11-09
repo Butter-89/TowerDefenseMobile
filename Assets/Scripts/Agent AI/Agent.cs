@@ -48,7 +48,7 @@ public class Agent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Node nextNode = other.transform.GetComponent<Node>().GetNextNode();
+        Node nextNode = other.transform.GetComponent<Node>()?.GetNextNode();
         //Debug.Log("Next node: " + nextNode.name);
         //Debug.Log("Trigger: " + other.name);
         if (nextNode != null)
