@@ -37,17 +37,17 @@ public class TowerNetworkManager : MonoBehaviour
 
     public void GoToNext()
     {
-        towers.CurrentValue.SetActive(false);
+       // towers.CurrentValue.SetActive(false);
         towers.GoToNext();
-        towers.CurrentValue.SetActive(true);
+       // towers.CurrentValue.SetActive(true);
         OnTowerChange.Invoke("next");
     }
 
     public void GoToPrevious()
     {
-        towers.CurrentValue.SetActive(false);
+        //towers.CurrentValue.SetActive(false);
         towers.GoToPrevious();
-        towers.CurrentValue.SetActive(true);
+       // towers.CurrentValue.SetActive(true);
         OnTowerChange.Invoke("previous");
     }
     
