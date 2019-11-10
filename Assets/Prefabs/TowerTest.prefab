@@ -109,6 +109,8 @@ MonoBehaviour:
   projectile: {fileID: 4822019113198019793, guid: 13484b2fdcc4e674cbdaf2299ee18615,
     type: 3}
   shootFrom: {fileID: 1970288911580189468}
+  auto_shoot: 0
+  target: {fileID: 0}
   FireRate: 1
 --- !u!1 &3821907538236327276
 GameObject:
@@ -306,7 +308,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8613358425686449639}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6e7db4bdf0fc1444908d627b7a9c0a2, type: 3}
   m_Name: 
