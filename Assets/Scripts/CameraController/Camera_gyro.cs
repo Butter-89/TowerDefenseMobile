@@ -7,6 +7,7 @@ public class Camera_gyro : MonoBehaviour
     // Start is called before the first frame update
     public Camera camera;
     public float cameraMoveAnimationSpeed;
+    public GameObject turrent;
 
     float xRot, yRot, zRot;
     private float sensitivity = 0.9f;
@@ -35,6 +36,7 @@ public class Camera_gyro : MonoBehaviour
         yRot = Input.acceleration.x * -180f;
         zRot = 0f;
         camera.transform.rotation = Quaternion.Slerp(camera.transform.rotation, Quaternion.Euler(new Vector3(xRot, yRot * 1.1f, zRot)), Time.deltaTime * sensitivity);
+        //turrent.transform.rotation = camera.transform.rotation;
         //gyroCameraController();
         // Debug.Log(Input.gyro.rotationRateUnbiased);
         moveCamera();
@@ -56,14 +58,7 @@ public class Camera_gyro : MonoBehaviour
         }
         
     }
-    IEnumerator moveCameraAnimation(Vector3 movePosition)
-    {
-        journeydis = Vector3.Distance(camera.transform.position, movePosition);
-        float fj = (Time.time) * 15f / journeydis;
-        camera.transform.position = Vector3.Lerp(camera.transform.position, movePosition * 2, 0.5f);
-        yield return new WaitForSecondsRealtime(2);
-
-    }
+    
 
     void gyroCameraController()
     {

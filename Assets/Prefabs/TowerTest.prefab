@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3026622846162825621}
   - component: {fileID: 480020705571515031}
   - component: {fileID: 897032866}
+  - component: {fileID: 4807248390524100608}
   m_Layer: 0
   m_Name: TowerTest
   m_TagString: Untagged
@@ -106,12 +107,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5c9e9d7959a8945b0d9c2eab36d48e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
   projectile: {fileID: 4822019113198019793, guid: 13484b2fdcc4e674cbdaf2299ee18615,
     type: 3}
   shootFrom: {fileID: 1970288911580189468}
   auto_shoot: 0
   target: {fileID: 0}
   FireRate: 1
+--- !u!114 &4807248390524100608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475076672835208806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a103c2ab01837d4c836924eee5e7f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3821907538236327276
 GameObject:
   m_ObjectHideFlags: 0

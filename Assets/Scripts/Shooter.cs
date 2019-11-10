@@ -50,6 +50,7 @@ public class Shooter : MonoBehaviour
         }
     }
 
+    
     //private void Update()
     //{
     //    //just for debugging purpose

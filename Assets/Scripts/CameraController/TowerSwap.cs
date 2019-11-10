@@ -22,7 +22,7 @@ public class TowerSwap : MonoBehaviour
     /// <summary>
     /// Go to the next tower;
     /// </summary>
-    public void nextTower()
+    public void SwapTower()
     {
         
         towerNetworkManager.GoToNext();
