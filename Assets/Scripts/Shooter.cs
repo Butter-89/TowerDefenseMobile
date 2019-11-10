@@ -2,6 +2,7 @@
 
 public class Shooter : MonoBehaviour
 {
+    public Camera mainCam;
     public GameObject projectile;
     public Transform shootFrom;
     public bool auto_shoot = true;
@@ -25,8 +26,17 @@ public class Shooter : MonoBehaviour
         if(auto_shoot)
         {
             var launched = Instantiate(projectile);
-            launched.transform.position = shootFrom.position;
-            launched.transform.rotation = shootFrom.rotation;
+            if(mainCam != null)
+            {
+                launched.transform.position = mainCam.transform.position;
+                launched.transform.rotation = mainCam.transform.rotation;
+            }
+            else
+            {
+                launched.transform.position = shootFrom.position;
+                launched.transform.rotation = shootFrom.rotation;
+            }
+            
             launched.SetActive(true);
             Invoke("Shoot", FireRate);
         }
