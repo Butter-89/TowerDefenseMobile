@@ -21,7 +21,7 @@ public class TocuhDetection : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit) && hit.transform.gameObject.name == "myGameObjectName")
             {
-                hit.GetComponent<TouchObjectScript>().ApplyForce();
+                //hit.GetComponent<TouchObjectScript>().ApplyForce();
             }
         }
 
