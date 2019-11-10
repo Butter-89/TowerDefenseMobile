@@ -109,6 +109,8 @@ MonoBehaviour:
   projectile: {fileID: 4822019113198019793, guid: 13484b2fdcc4e674cbdaf2299ee18615,
     type: 3}
   shootFrom: {fileID: 1970288911580189468}
+  auto_shoot: 0
+  target: {fileID: 0}
   FireRate: 1
 --- !u!1 &3821907538236327276
 GameObject:
