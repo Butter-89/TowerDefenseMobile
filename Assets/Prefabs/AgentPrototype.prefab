@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3679741801947078073}
   - component: {fileID: 1629078913}
   - component: {fileID: 1580798232}
+  - component: {fileID: 3507731059488731061}
   m_Layer: 0
   m_Name: AgentPrototype
   m_TagString: Untagged
@@ -166,3 +167,15 @@ MonoBehaviour:
   pathCreator: {fileID: 0}
   endOfPathInstruction: 0
   speed: 5
+--- !u!114 &3507731059488731061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3679741801947078070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff08139f10079e544a6373955eb757df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
