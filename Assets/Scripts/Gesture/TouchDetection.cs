@@ -5,7 +5,7 @@ using UnityEngine;
 public class TouchDetection : MonoBehaviour
 {
     public TowerSwap towerSwap;
-
+    public Camera_gyro cameraController;
 
     // Start is called before the first frame update
     void Start()
@@ -18,18 +18,21 @@ public class TouchDetection : MonoBehaviour
 
     void Update()
     {
-        if ((Input.touchCount > 0) && (Input.GetTouch(0).phase == TouchPhase.Began))
-        {
-            Ray raycast = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-            RaycastHit raycastHit;
-            if (Physics.Raycast(raycast, out raycastHit))
+       
+            if ((Input.touchCount > 0) && (Input.GetTouch(0).phase == TouchPhase.Began))
             {
-                towerSwap.SwapTower(raycastHit.transform.parent.gameObject.transform.localPosition);
-                Transform Camera = raycastHit.transform.parent.Find("Camera");
-                Debug.Log(Camera) ;
-                
+                Ray raycast = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+                RaycastHit raycastHit;
+                if (Physics.Raycast(raycast, out raycastHit))
+                {
+                    towerSwap.SwapTower(raycastHit.transform.parent.gameObject.transform.localPosition);
+                    Transform turrent = raycastHit.transform.parent.Find("Turret Low");
+                cameraController.towerTransform = turrent;
+                    Debug.Log(turrent);
+
+                }
             }
-        }
+        
     }
    
 }

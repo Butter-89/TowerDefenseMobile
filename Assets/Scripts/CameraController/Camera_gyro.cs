@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Camera_gyro : MonoBehaviour
 {
+    public TouchDetection touch;
+    public SwipeDetection swipe;
+
     // Start is called before the first frame update
     public Camera camera;
     public float cameraMoveAnimationSpeed;
     public GameObject turrent;
-    public TouchDetection touch;
     float xRot, yRot, zRot;
     private float sensitivity = 0.9f;
     Gyroscope gyroscope;
@@ -19,7 +21,8 @@ public class Camera_gyro : MonoBehaviour
     private float startTime;
    public Vector3 movePosition;
     private float journeydis;
-    
+
+    public Transform towerTransform;
     public GameObject MainCamera;
     /// <summary>
     /// Add the camera here
@@ -79,9 +82,11 @@ public class Camera_gyro : MonoBehaviour
             camera.transform.position = Vector3.Lerp(camera.transform.position, movePosition, fj);
             if (camera.transform.position == movePosition)
             {
+                swipe.isTouchEnabled = false;
                // MainCamera.SetActive(false);
                 MainCameraAudioListener.enabled = false;
 
+            towerTransform.rotation = camera.transform.rotation;
 
                 camera1.SetActive(true);
                 audioListenerCamera1.enabled = true;
