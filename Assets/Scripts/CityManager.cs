@@ -3,10 +3,10 @@ using UnityEngine.Events;
 
 public class CityManager : MonoBehaviour
 {
-    public byte CityHealth = 10;
+    public short CityHealth = 10;
 
-    private byte maxHealth;
-    public byte MaxHealth
+    private short maxHealth;
+    public short MaxHealth
     {
         get => maxHealth;
     }
@@ -41,7 +41,7 @@ public class CityManager : MonoBehaviour
             Debug.Log(CityHealth);
             OnAreaAttacked.Invoke();
             // Game over
-            if (CityHealth == 0)
+            if (CityHealth <= 0)
             {
                 Debug.Log("Game over");
                 OnAreaDestroyed.Invoke();
