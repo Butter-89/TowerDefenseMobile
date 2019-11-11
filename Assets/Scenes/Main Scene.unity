@@ -5519,6 +5519,11 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[7]
       value: 
       objectReference: {fileID: 1737155457}
+    - target: {fileID: 3027009984604313677, guid: b5ca41427778f9643985f0a8b61d4f42,
+        type: 3}
+      propertyPath: showInEditor
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3027009984604313676, guid: b5ca41427778f9643985f0a8b61d4f42,
         type: 3}
       propertyPath: editorData.vertexPathUpToDate

@@ -7,7 +7,7 @@ namespace PathCreation.Examples {
     [RequireComponent(typeof(PathCreator))]
     public class GeneratePathExample : MonoBehaviour {
         // Vertex path created from the current bezier path
-
+        public bool showInEditor = false;
         public bool closedLoop = true;
         public Transform[] waypoints;
 
@@ -19,5 +19,18 @@ namespace PathCreation.Examples {
             }
         }
 
-    }
+#if UNITY_EDITOR
+        void OnDrawGizmos()
+        {
+            if (waypoints.Length > 0 && showInEditor)
+            {
+                // Create a new bezier path from the waypoints.
+                BezierPath bezierPath = new BezierPath(waypoints, closedLoop, PathSpace.xyz);
+                GetComponent<PathCreator>().bezierPath = bezierPath;
+            }
+        }
+        
+#endif
+
+}
 }
