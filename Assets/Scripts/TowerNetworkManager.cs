@@ -6,7 +6,7 @@ public class TowerNetworkManager : MonoBehaviour
     TrackedLinkedList<GameObject> towers = new TrackedLinkedList<GameObject>();
 
     [System.Serializable]
-    public class TowerChangedEvent : UnityEvent<string> { }
+    public class TowerChangedEvent : UnityEvent<string, GameObject> { }
 
     /// <summary>
     /// Fires whenever the selected tower is changed. The string sent is either
@@ -35,22 +35,34 @@ public class TowerNetworkManager : MonoBehaviour
 #endif
     }
 
+    /// <summary>
+    /// Sets the current tower to be the next one in the list.
+    /// </summary>
     public void GoToNext()
     {
-       // towers.CurrentValue.SetActive(false);
         towers.GoToNext();
-       // towers.CurrentValue.SetActive(true);
-        OnTowerChange.Invoke("next");
+        OnTowerChange.Invoke("next", CurrentTower);
     }
 
+    /// <summary>
+    /// Causes the tower previous in the list to be selected.
+    /// </summary>
     public void GoToPrevious()
     {
-        //towers.CurrentValue.SetActive(false);
         towers.GoToPrevious();
-       // towers.CurrentValue.SetActive(true);
-        OnTowerChange.Invoke("previous");
+        OnTowerChange.Invoke("previous", CurrentTower);
     }
     
+    /// <summary>
+    /// Makes the current tower the tower at the given index.
+    /// </summary>
+    /// <param name="index">The index of the tower.</param>
+    public void SetCurrent(int index)
+    {
+        towers.SetCurrentIndex(index);
+        OnTowerChange.Invoke("indexChange", CurrentTower);
+    }
+
     /// <summary>
     /// Adds a tower to this network manager. If the added tower's parent is 
     /// not this network, it will set it to this network.
