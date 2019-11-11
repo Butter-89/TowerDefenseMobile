@@ -59,18 +59,7 @@ public class Agent : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Collision!");
-        ProjectileMovement pm = collision.collider.GetComponentInParent<ProjectileMovement>();
-        if (pm)
-        {
-            //this.enabled = false;
-            Destroy(pm.gameObject);
-            Destroy(this.gameObject);
-        }
-        
-    }
+    
 
     public void SetAgentDestination(Node i_nextNode)
     {
