@@ -32,7 +32,7 @@ public class ProjectileMovement : MonoBehaviour
         }
         else
         {
-            transform.Translate(0, ProjectileVelocity * Time.deltaTime, 0, Space.Self);
+            transform.Translate(0, 0, ProjectileVelocity * Time.deltaTime, Space.Self);
             currentLifetime += Time.deltaTime;
             if (currentLifetime >= MaxLifetime)
                 Destroy(gameObject);
