@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class TowerSwap : MonoBehaviour
 {
-    public TowerNetworkManager towerNetworkManager;
+  
     public Camera_gyro cameraController;
-    GameObject current;
-    private float journeydis;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -20,17 +19,17 @@ public class TowerSwap : MonoBehaviour
         
     }
     /// <summary>
-    /// Go to the next tower;
+    /// 
     /// </summary>
-    public void SwapTower()
+    public void SwapTower(Vector3 selectedTower)
     {
-        
-        towerNetworkManager.GoToNext();
-      current =  towerNetworkManager.CurrentTower;
-        Debug.Log(current.transform.position);
+
+        //towerNetworkManager.GoToNext();
+        Vector3 offset = new Vector3(0f,selectedTower.y + 7f,0f);
+     //   Debug.Log(current.transform.position);
 
         cameraController.isMoveCamera = true;
-        cameraController.movePosition = current.transform.position;
+        cameraController.movePosition = selectedTower+ offset;
         //StartCoroutine(moveCameraAnimation(current.transform.position));
 
 
