@@ -19,7 +19,7 @@ public class Camera_gyro : MonoBehaviour
     private float startTime;
    public Vector3 movePosition;
     private float journeydis;
-
+    
     public GameObject MainCamera;
     /// <summary>
     /// Add the camera here
@@ -60,7 +60,7 @@ public class Camera_gyro : MonoBehaviour
         //gyroCameraController();
         // Debug.Log(Input.gyro.rotationRateUnbiased);
         moveCamera();
-        Debug.Log("camera"+camera.name);
+        //Debug.Log("camera"+camera.name);
 
     }
     

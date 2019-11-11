@@ -25,16 +25,12 @@ public class TouchDetection : MonoBehaviour
             if (Physics.Raycast(raycast, out raycastHit))
             {
                 towerSwap.SwapTower(raycastHit.transform.parent.gameObject.transform.localPosition);
-                
-                
+                Transform Camera = raycastHit.transform.parent.Find("Camera");
+                Debug.Log(Camera) ;
                 
             }
         }
     }
    
-    //private void OnMouseDown()
-    //{
-    //    Debug.Log("Tower is hit"+gameObject.name);
-        
-    //}
 }
+
