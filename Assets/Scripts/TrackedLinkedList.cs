@@ -7,17 +7,25 @@ using System.Collections.Generic;
 public class TrackedLinkedList<T> : IEnumerable
 {
 
-    private LinkedList<T> objects = new LinkedList<T>();
+    private List<T> objects = new List<T>();
 
-    private LinkedListNode<T> current = null;
-
+    
     #region Fields
+    private int currentIndex = 0;
+    /// <summary>
+    /// The currently selected index in the system.
+    /// </summary>
+    public int CurrentIndex
+    {
+        get => currentIndex;
+    }
+
     /// <summary>
     /// Gets the current value of the list.
     /// </summary>
     public T CurrentValue
     {
-        get => current.Value;
+        get => objects[currentIndex];
     }
 
     /// <summary>
@@ -27,22 +35,6 @@ public class TrackedLinkedList<T> : IEnumerable
     {
         get => objects.Count;
     }
-
-    /// <summary>
-    /// Gets the value of the first object in the list.
-    /// </summary>
-    public T First
-    {
-        get => objects.First.Value;
-    }
-
-    /// <summary>
-    /// Gets the value of the last object in the list.
-    /// </summary>
-    public T Last
-    {
-        get => objects.Last.Value;
-    }
     #endregion Fields
 
     #region Public Methods
@@ -51,7 +43,8 @@ public class TrackedLinkedList<T> : IEnumerable
     /// </summary>
     public void GoToNext()
     {
-        current = current?.Next ?? objects.First;
+        currentIndex++;
+        currentIndex %= Count;
     }
 
     /// <summary>
@@ -59,57 +52,23 @@ public class TrackedLinkedList<T> : IEnumerable
     /// </summary>
     public void GoToPrevious()
     {
-        current = current?.Previous ?? objects.Last;
+        currentIndex = currentIndex == 0 ? Count - 1 : currentIndex - 1;
     }
 
-    /// <summary>
-    /// Adds the value after the current object.
-    /// </summary>
-    /// <param name="value">The value to insert.</param>
-    public void AddObjectAfterCurrent(T value)
+    public void SetCurrentIndex(int index)
     {
-        objects.AddAfter(current, value);
-        SetFirst();
+        if (index < 0 || Count <= index)
+            throw new System.IndexOutOfRangeException();
+        currentIndex = index;
     }
 
     /// <summary>
-    /// Adds the value before the current object.
-    /// </summary>
-    /// <param name="value">The value to insert.</param>
-    public void AddObjectBeforeCurrent(T value)
-    {
-        objects.AddBefore(current, value);
-        SetFirst();
-    }
-
-    /// <summary>
-    /// Adds the value at the end of the list.
-    /// </summary>
-    /// <param name="value">The value to insert.</param>
-    public void AddObjectAtEnd(T value)
-    {
-        objects.AddLast(value);
-        SetFirst();
-    }
-
-    /// <summary>
-    /// Places an object at the start of the list.
-    /// </summary>
-    /// <param name="value">The value to add to the list.</param>
-    public void AddObjectAtStart(T value)
-    {
-        objects.AddFirst(value);
-        SetFirst();
-    }
-
-    /// <summary>
-    /// Alias for TrackedLinkedList.AddObjectAtEnd().
+    /// Adds a tower at the end of the list.
     /// </summary>
     /// <param name="value">The value to be added to the list.</param>
-    /// <see cref="TrackedLinkedList{T}.AddObjectAtEnd(T)"/>
     public void Add(T value)
     {
-        AddObjectAtEnd(value);
+        objects.Add(value);
     }
 
     /// <summary>
@@ -120,15 +79,20 @@ public class TrackedLinkedList<T> : IEnumerable
     {
         objects.Remove(value);
     }
-
     #endregion Public Methods
 
-    #region Private Methods
-    private void SetFirst()
+    #region Operators
+    /// <summary>
+    /// Allows the user to get the element at any given index.
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
+    public T this[int index]
     {
-        if (current == null)
-            current = objects.First;
+        get => objects[index];
+        set => objects[index] = value;
     }
+
     #endregion
 
     #region Interface Implementations
