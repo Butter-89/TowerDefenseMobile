@@ -88,7 +88,7 @@ public class Camera_gyro : MonoBehaviour
             journeydis = Vector3.Distance(MainCamera.transform.position, movePosition);
           //  Debug.Log(journeydis);
              fj = (Time.deltaTime) * cameraMoveAnimationSpeed / journeydis*100 ;
-            Debug.Log(journeydis);
+            //Debug.Log(journeydis);
             MainCamera.transform.position = Vector3.Lerp(MainCamera.transform.position, movePosition, fj);
 
 
