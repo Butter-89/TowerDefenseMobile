@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   isHoming: 0
-  ProjectileVelocity: 7
+  ProjectileVelocity: 100
   MaxLifetime: 15
 --- !u!1 &4822019113369706944
 GameObject:
