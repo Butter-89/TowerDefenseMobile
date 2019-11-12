@@ -25,7 +25,7 @@ public class TowerSwap : MonoBehaviour
     {
 
         //towerNetworkManager.GoToNext();
-        Vector3 offset = new Vector3(0f,selectedTower.y + 7f,0f);
+        Vector3 offset = new Vector3(0f,selectedTower.y + 7f,5f);
      //   Debug.Log(current.transform.position);
 
         cameraController.isMoveCamera = true;
