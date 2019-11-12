@@ -10,7 +10,7 @@ public class TouchDetection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
 
     }
 
@@ -18,13 +18,13 @@ public class TouchDetection : MonoBehaviour
 
     void Update()
     {
-       
-            if ((Input.touchCount > 0) && (Input.GetTouch(0).phase == TouchPhase.Began))
+
+        if ((Input.touchCount > 0) && (Input.GetTouch(0).phase == TouchPhase.Began))
+        {
+            Ray raycast = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+            RaycastHit raycastHit;
+            if (Physics.Raycast(raycast, out raycastHit))
             {
-                Ray raycast = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-                RaycastHit raycastHit;
-                if (Physics.Raycast(raycast, out raycastHit))
-                {
                 if (raycastHit.transform.parent.gameObject.tag == "Tower" || raycastHit.transform.parent.gameObject.tag == "Tower1" || raycastHit.transform.parent.gameObject.tag == "Tower2")
                 {
                     // Debug.Log(raycastHit.transform.parent.gameObject.transform.localPosition);
@@ -47,10 +47,10 @@ public class TouchDetection : MonoBehaviour
                     cameraController.tagName = raycastHit.transform.parent.tag;
                 }
 
-                }
             }
-        
+        }
+
     }
-   
+
 }
 
