@@ -11,11 +11,11 @@ public class Swipe : MonoBehaviour
     private Vector3 touchPoi;
     private Vector3 dir;
     public float speed = 10f;
-
+   
     public GameObject rb;
     void Start()
     {
-        
+       
     }
 
     
@@ -48,7 +48,7 @@ public class Swipe : MonoBehaviour
            if (touchTest.phase == TouchPhase.Moved)
             {
                 Vector2 current = touchTest.deltaPosition;
-                rb.transform.Rotate(new Vector3(-current.y, -current.x, 0) * Time.deltaTime * speed);
+                transform.Rotate(new Vector3(-current.y, -current.x, 0) * Time.deltaTime * speed);
             }
             else if (touchTest.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
             {
@@ -58,44 +58,8 @@ public class Swipe : MonoBehaviour
         #endregion 
 
 
-        // calculate the swipe distance in pixels
-        swipeValues = Vector2.zero;
-        if (isDragging)
-        {
-            if (Input.touchCount > 0)
-            {
-                swipeValues = Input.touches[0].position - start;
-            }
-            else if (Input.GetMouseButton(0))
-                swipeValues = (Vector2)Input.mousePosition- start;
-
-        }
-
-        //Swipe Detection code
-        if (swipeValues.magnitude >150)// 150 is the number of pixels
-        {
-            float x = swipeValues.x;
-            float y = swipeValues.y;
-            if (Mathf.Abs(x) > Mathf.Abs(y))
-            {
-                // left or right swipe detection
-                if (x > 0)
-                    swipeRight = true;
-                else
-                    swipeLeft = true;
-            }
-            else
-            {
-                //Up or down swipe detection
-                if (y > 0)
-                    swipeUp = true;
-                else
-                    swipeDown = true;
-            }
-
-
-            Reset();
-        }
+       
+        
     }
     private void Reset()
     {
