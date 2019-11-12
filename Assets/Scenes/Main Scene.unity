@@ -216,6 +216,16 @@ PrefabInstance:
       propertyPath: FireRate
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1268755691830169778, guid: 65def64e091b80b42b20acf395fa8e0a,
+        type: 3}
+      propertyPath: far clip plane
+      value: 25000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268755691830169778, guid: 65def64e091b80b42b20acf395fa8e0a,
+        type: 3}
+      propertyPath: field of view
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65def64e091b80b42b20acf395fa8e0a, type: 3}
 --- !u!1 &62297699
@@ -855,6 +865,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ButtonClick
       objectReference: {fileID: 0}
+    - target: {fileID: 880945816, guid: 65def64e091b80b42b20acf395fa8e0a, type: 3}
+      propertyPath: FireRate
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 2539426367180477697, guid: 65def64e091b80b42b20acf395fa8e0a,
         type: 3}
       propertyPath: m_IsActive
@@ -873,7 +887,7 @@ PrefabInstance:
     - target: {fileID: 1268755691830169778, guid: 65def64e091b80b42b20acf395fa8e0a,
         type: 3}
       propertyPath: field of view
-      value: 26.991467
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1268755691830169778, guid: 65def64e091b80b42b20acf395fa8e0a,
         type: 3}
@@ -883,7 +897,7 @@ PrefabInstance:
     - target: {fileID: 1268755691830169778, guid: 65def64e091b80b42b20acf395fa8e0a,
         type: 3}
       propertyPath: far clip plane
-      value: 3000
+      value: 12000
       objectReference: {fileID: 0}
     - target: {fileID: 3376045472066015187, guid: 65def64e091b80b42b20acf395fa8e0a,
         type: 3}
@@ -929,10 +943,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 880945816, guid: 65def64e091b80b42b20acf395fa8e0a, type: 3}
-      propertyPath: FireRate
-      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65def64e091b80b42b20acf395fa8e0a, type: 3}
@@ -3830,17 +3840,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: e4782313109b60947afd5d778419b4b3,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.013449
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e4782313109b60947afd5d778419b4b3,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.013449
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e4782313109b60947afd5d778419b4b3,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.013449
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: e4782313109b60947afd5d778419b4b3,
         type: 3}
@@ -6389,6 +6399,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5380831302590127408, guid: 4aba6efc2b93fba41b00116168dde613,
+        type: 3}
+      propertyPath: far clip plane
+      value: 25000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aba6efc2b93fba41b00116168dde613, type: 3}
 --- !u!1 &6765237143998850881 stripped
@@ -6504,6 +6519,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 880945816, guid: 65def64e091b80b42b20acf395fa8e0a, type: 3}
+      propertyPath: FireRate
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1268755691830169778, guid: 65def64e091b80b42b20acf395fa8e0a,
         type: 3}
       propertyPath: near clip plane
@@ -6512,7 +6531,12 @@ PrefabInstance:
     - target: {fileID: 1268755691830169778, guid: 65def64e091b80b42b20acf395fa8e0a,
         type: 3}
       propertyPath: far clip plane
-      value: 3000
+      value: 25000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268755691830169778, guid: 65def64e091b80b42b20acf395fa8e0a,
+        type: 3}
+      propertyPath: field of view
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8731782739256669329, guid: 65def64e091b80b42b20acf395fa8e0a,
         type: 3}
@@ -6568,10 +6592,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -3.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 880945816, guid: 65def64e091b80b42b20acf395fa8e0a, type: 3}
-      propertyPath: FireRate
-      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65def64e091b80b42b20acf395fa8e0a, type: 3}
