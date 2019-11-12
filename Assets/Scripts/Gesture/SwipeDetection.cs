@@ -18,37 +18,37 @@ public class SwipeDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isTouchEnabled == true)
-        {
-            if (swipeManager.SwipeUp)
-            {
+        //if (isTouchEnabled == true)
+        //{
+        //    if (swipeManager.SwipeUp)
+        //    {
 
-                CameraMover.transform.Rotate(new Vector3(+RotateSpeed, 0, 0));
+        //        CameraMover.transform.Rotate(new Vector3(+RotateSpeed, 0, 0));
 
-            }
-            if (swipeManager.SwipeDown)
-            {
+        //    }
+        //    if (swipeManager.SwipeDown)
+        //    {
 
-                CameraMover.transform.Rotate(new Vector3(-RotateSpeed, 0, 0));
+        //        CameraMover.transform.Rotate(new Vector3(-RotateSpeed, 0, 0));
 
-            }
-            if (swipeManager.SwipeLeft)
-            {
+        //    }
+        //    if (swipeManager.SwipeLeft)
+        //    {
 
-                CameraMover.transform.Rotate(new Vector3(0, RotateSpeed, 0));
+        //        CameraMover.transform.Rotate(new Vector3(0, RotateSpeed, 0));
 
-            }
-            if (swipeManager.SwipeRight)
-            {
+        //    }
+        //    if (swipeManager.SwipeRight)
+        //    {
 
-                CameraMover.transform.Rotate(new Vector3(0, -RotateSpeed, 0));
+        //        CameraMover.transform.Rotate(new Vector3(0, -RotateSpeed, 0));
 
-            }
-            if (swipeManager.Tap)
-            {
+        //    }
+        //    if (swipeManager.Tap)
+        //    {
 
-            }
-        }
+        //    }
+        //}
         
     }
 }

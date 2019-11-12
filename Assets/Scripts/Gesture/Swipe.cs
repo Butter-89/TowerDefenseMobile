@@ -8,13 +8,17 @@ public class Swipe : MonoBehaviour
     private bool isDragging;
     private Touch touch;
     private Vector2 start, swipeValues, end;
-    
+    private Vector3 touchPoi;
+    private Vector3 dir;
+    public float speed = 10f;
+
+    public GameObject rb;
     void Start()
     {
         
     }
 
-
+    
     private void Update()
     {
 
@@ -40,23 +44,15 @@ public class Swipe : MonoBehaviour
         #region Mobile Inputs
         if (Input.touchCount > 0)
         {
-            touch = Input.touches[0];
-            if (touch.phase == TouchPhase.Began)
+            Touch touchTest = Input.GetTouch(0);
+           if (touchTest.phase == TouchPhase.Moved)
             {
-                
-                isDragging = true;
-                start = touch.position;
+                Vector2 current = touchTest.deltaPosition;
+                rb.transform.Rotate(new Vector3(-current.y, -current.x, 0) * Time.deltaTime * speed);
             }
-            else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+            else if (touchTest.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
             {
-                end = touch.position;
-                // tap detection
-                if (start == end)
-                {
-                    tap = true;
-                }
-                isDragging = false;
-                Reset();
+                rb.transform.Rotate(Vector3.zero);
             }
         }
         #endregion 
