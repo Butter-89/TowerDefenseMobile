@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("I was indeed called");
         gameOverUI.SetActive(true);
+        GameObject.Find("Tower Selection").SetActive(false);
         IsGameOver = true;
     }
 
