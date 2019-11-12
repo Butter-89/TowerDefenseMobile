@@ -8,21 +8,25 @@ public class Camera_gyro : MonoBehaviour
     public SwipeDetection swipe;
 
     // Start is called before the first frame update
-    public Camera camera;
     public float cameraMoveAnimationSpeed;
-    public GameObject turrent;
-    float xRot, yRot, zRot;
+ 
+    private float xRot, yRot, zRot;
     private float sensitivity = 0.9f;
-    Gyroscope gyroscope;
-   public bool isMoveCamera = false;
+    private Gyroscope gyroscope;
+
+    [HideInInspector]
+    public bool isMoveCamera = false;
+    public Vector3 movePosition;
+    public string tagName;
+    public Camera camera;
+    public Transform towerTransform;
     //debug
 
-    public string tagName;
     private float startTime;
-   public Vector3 movePosition;
     private float journeydis;
+    private Vector3 MainCameraLocation;
+    private Quaternion MainCameraRotation;
 
-    public Transform towerTransform;
     public GameObject MainCamera;
     /// <summary>
     /// Add the camera here
@@ -35,36 +39,31 @@ public class Camera_gyro : MonoBehaviour
     AudioListener audioListenerCamera1;
     AudioListener audioListenerCamera2;
     AudioListener audioListenerCamera3;
+    float fj;
+    int n = 0;
+   public bool isBackToMenu= false;
     void Start()
     {
         camera = MainCamera.GetComponent<Camera>();
-        Input.gyro.enabled = true;
-
+        Input.gyro.enabled = false;
+        MainCameraLocation = camera.transform.position;
+        MainCameraRotation = camera.transform.rotation;
         MainCameraAudioListener = MainCamera.GetComponent<AudioListener>();
         audioListenerCamera1 = camera1.GetComponent<AudioListener>();
         audioListenerCamera2 = camera2.GetComponent<AudioListener>();
         audioListenerCamera3 = camera3.GetComponent<AudioListener>();
-
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        //This moves the camera up and down
-        xRot = Mathf.Clamp(Input.acceleration.z, -0.35f, 0.3f) * -180f;
         
-
-        // This tilts like a driving wheel to make it like shaking head no
-        yRot = Input.acceleration.x * -180f;
-        zRot = 0f;
-        camera.transform.rotation = Quaternion.Slerp(camera.transform.rotation, Quaternion.Euler(new Vector3(xRot, yRot * 1.1f, zRot)), Time.deltaTime * sensitivity);
-        //turrent.transform.rotation = camera.transform.rotation;
-        //gyroCameraController();
-        // Debug.Log(Input.gyro.rotationRateUnbiased);
+      
+        
         moveCamera();
-        //Debug.Log("camera"+camera.name);
-
+        BackToMenu();
+       // Debug.Log(isMoveCamera);
     }
     
     /// <summary>
@@ -76,30 +75,110 @@ public class Camera_gyro : MonoBehaviour
         //Debug.Log("yes");
         if (isMoveCamera == true)
         {
-            //Debug.Log("no");
-            journeydis = Vector3.Distance(camera.transform.position, movePosition);
-            float fj = (Time.time) * cameraMoveAnimationSpeed / journeydis;
-            camera.transform.position = Vector3.Lerp(camera.transform.position, movePosition, fj);
-            if (camera.transform.position == movePosition)
+            Input.gyro.enabled = true;
+            // Camera gyro controller.
+            xRot = Mathf.Clamp(Input.acceleration.z, -0.35f, 0.3f) * -180f;
+            yRot = Input.acceleration.x * 180f;
+            zRot = 0f;
+            camera.transform.rotation = Quaternion.Slerp(camera.transform.rotation, Quaternion.Euler(new Vector3(xRot, yRot * 1.1f, zRot)), Time.deltaTime * sensitivity);
+
+
+
+            //Code to move the camera to the selected tower
+            journeydis = Vector3.Distance(MainCamera.transform.position, movePosition);
+          //  Debug.Log(journeydis);
+             fj = (Time.deltaTime) * cameraMoveAnimationSpeed / journeydis*100 ;
+            Debug.Log(journeydis);
+            MainCamera.transform.position = Vector3.Lerp(MainCamera.transform.position, movePosition, fj);
+
+
+            //{
+            //    swipe.isTouchEnabled = false;
+            //   // MainCamera.SetActive(false);
+            //    MainCameraAudioListener.enabled = false;
+
+            //    towerTransform.rotation = camera.transform.rotation;
+
+            //    camera1.SetActive(true);
+            //    audioListenerCamera1.enabled = true;
+
+            //    camera = camera1.GetComponent<Camera>();
+
+
+            //}
+            if (journeydis==0 || MainCamera.transform.position == movePosition)
             {
+                
                 swipe.isTouchEnabled = false;
-               // MainCamera.SetActive(false);
                 MainCameraAudioListener.enabled = false;
-
-            towerTransform.rotation = camera.transform.rotation;
-
+                if (tagName == "Tower")
+            {
                 camera1.SetActive(true);
                 audioListenerCamera1.enabled = true;
-                
                 camera = camera1.GetComponent<Camera>();
 
-                
+
+            }
+            if (tagName == "Tower1")
+            {
+                camera2.SetActive(true);
+
+                audioListenerCamera2.enabled = true;
+
+                camera = camera2.GetComponent<Camera>();
+            }
+            if (tagName == "Tower2")
+            {
+                camera3.SetActive(true);
+
+                audioListenerCamera3.enabled = true;
+
+                camera = camera3.GetComponent<Camera>();
+            }
+
+            towerTransform.rotation = camera.transform.rotation;
             }
         }
         
     }
-    
 
+    public void ButtonClick()
+    {
+        isBackToMenu = true;
+        isMoveCamera = false;
+        journeydis = 0;
+        
+        n = 0;
+    }
+    private void BackToMenu()
+    {
+        //Debug.Log("clicked" + isBackToMenu);
+        if (isBackToMenu == true)
+        {
+
+            swipe.isTouchEnabled = true;
+            MainCameraAudioListener.enabled = true;
+            camera1.SetActive(false);
+            audioListenerCamera1.enabled = false;
+
+            camera2.SetActive(false);
+            audioListenerCamera2.enabled = false;
+
+            camera3.SetActive(false);
+            audioListenerCamera3.enabled = false;
+            //camera = MainCamera.GetComponent<Camera>();
+            
+            journeydis = Vector3.Distance(MainCamera.transform.position, MainCameraLocation);
+             fj = (Time.deltaTime) * cameraMoveAnimationSpeed / journeydis *100;
+           // Debug.Log(fj);
+            MainCamera.transform.position = Vector3.Lerp(MainCamera.transform.position, MainCameraLocation, fj);
+            if (n == 0)
+            {
+                MainCamera.transform.rotation = MainCameraRotation;
+                n = 1;
+            }
+        }
+    }
     void gyroCameraController()
     {
 
