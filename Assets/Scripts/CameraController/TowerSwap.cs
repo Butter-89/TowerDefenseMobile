@@ -23,18 +23,19 @@ public class TowerSwap : MonoBehaviour
     /// </summary>
     public void SwapTower(Vector3 selectedTower)
     {
-
-        //towerNetworkManager.GoToNext();
-        Vector3 offset = new Vector3(0f,selectedTower.y + 7f,0f);
-     //   Debug.Log(current.transform.position);
+        Vector3 offset = new Vector3(selectedTower.x,selectedTower.y + 7f,selectedTower.z);
 
         cameraController.isMoveCamera = true;
-        cameraController.movePosition = selectedTower+ offset;
-        //StartCoroutine(moveCameraAnimation(current.transform.position));
+       cameraController.movePosition = offset;
+       
+    }
+    public void SwapTowerDown(Vector3 selectedTower)
+    {
+        Vector3 offset = new Vector3(selectedTower.x, selectedTower.y , selectedTower.z);
 
-
-
+        cameraController.isMoveCamera = true;
+        cameraController.movePosition = offset;
 
     }
- 
+
 }

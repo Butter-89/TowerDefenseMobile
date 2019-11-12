@@ -25,16 +25,26 @@ public class TouchDetection : MonoBehaviour
                 RaycastHit raycastHit;
                 if (Physics.Raycast(raycast, out raycastHit))
                 {
-                if (raycastHit.transform.parent.gameObject.tag == "Tower" || raycastHit.transform.parent.gameObject.tag == "Tower1" || raycastHit.transform.parent.gameObject.tag == "Tower2" || raycastHit.transform.parent.gameObject.tag == "Tower3")
+                if (raycastHit.transform.parent.gameObject.tag == "Tower" || raycastHit.transform.parent.gameObject.tag == "Tower1" || raycastHit.transform.parent.gameObject.tag == "Tower2")
                 {
+                    // Debug.Log(raycastHit.transform.parent.gameObject.transform.localPosition);
                     towerSwap.SwapTower(raycastHit.transform.parent.gameObject.transform.localPosition);
 
                     cameraController.isBackToMenu = false;
                     Transform turrent = raycastHit.transform.parent.Find("Turret Low");
                     cameraController.towerTransform = turrent;
                     cameraController.tagName = raycastHit.transform.parent.tag;
-                    Debug.Log(turrent);
-                    
+                    // Debug.Log(turrent);
+
+                }
+                else if (raycastHit.transform.parent.gameObject.tag == "Tower3")
+                {
+                    towerSwap.SwapTowerDown(raycastHit.transform.parent.gameObject.transform.localPosition);
+
+                    cameraController.isBackToMenu = false;
+                    Transform turrent = raycastHit.transform.parent.Find("Turret Low");
+                    cameraController.towerTransform = turrent;
+                    cameraController.tagName = raycastHit.transform.parent.tag;
                 }
 
                 }
