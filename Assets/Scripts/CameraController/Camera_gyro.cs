@@ -11,14 +11,18 @@ public class Camera_gyro : MonoBehaviour
     public float cameraMoveAnimationSpeed;
  
     private float xRot, yRot, zRot;
-    private float sensitivity = 0.9f;
+    public float sensitivity = 1.5f;
     private Gyroscope gyroscope;
 
     [HideInInspector]
     public bool isMoveCamera = false;
+    [HideInInspector]
     public Vector3 movePosition;
+    [HideInInspector]
     public string tagName;
+    [HideInInspector]
     public Camera camera;
+    [HideInInspector]
     public Transform towerTransform;
     //debug
 
@@ -63,7 +67,7 @@ public class Camera_gyro : MonoBehaviour
         
         moveCamera();
         BackToMenu();
-       // Debug.Log(isMoveCamera);
+        Debug.Log(isBackToMenu);
     }
     
     /// <summary>
@@ -78,7 +82,7 @@ public class Camera_gyro : MonoBehaviour
             Input.gyro.enabled = true;
             // Camera gyro controller.
             xRot = Mathf.Clamp(Input.acceleration.z, -0.35f, 0.3f) * -180f;
-            yRot = Input.acceleration.x * 180f;
+            yRot = Mathf.Clamp( Input.acceleration.x ,-0.35f, 0.3f)* 180f;
             zRot = 0f;
             camera.transform.rotation = Quaternion.Slerp(camera.transform.rotation, Quaternion.Euler(new Vector3(xRot, yRot * 1.1f, zRot)), Time.deltaTime * sensitivity);
 
@@ -175,7 +179,12 @@ public class Camera_gyro : MonoBehaviour
             if (n == 0)
             {
                 MainCamera.transform.rotation = MainCameraRotation;
+                
                 n = 1;
+            }
+            if (MainCamera.transform.position == MainCameraLocation)
+            {
+                isBackToMenu = false;
             }
         }
     }

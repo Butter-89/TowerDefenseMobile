@@ -11,7 +11,7 @@ public class AgentHealth : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision!");
+       // Debug.Log("Collision!");
         ProjectileMovement pm = collision.collider.GetComponentInParent<ProjectileMovement>();
         if (pm)
         {
