@@ -82,7 +82,8 @@ public class Camera_gyro : MonoBehaviour
             Input.gyro.enabled = true;
             // Camera gyro controller.
             xRot = Mathf.Clamp(Input.acceleration.z, -0.35f, 0.3f) * -180f;
-            yRot = Mathf.Clamp( Input.acceleration.x ,-0.35f, 0.3f)* 180f;
+            //yRot = Mathf.Clamp( Input.acceleration.x ,-0.35f, 0.3f)* 180f;
+            yRot = Input.acceleration.x * 180f;
             zRot = 0f;
             camera.transform.rotation = Quaternion.Slerp(camera.transform.rotation, Quaternion.Euler(new Vector3(xRot, yRot * 1.1f, zRot)), Time.deltaTime * sensitivity);
 
