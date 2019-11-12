@@ -697,18 +697,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 186857832}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &189764943 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5565270260609120350, guid: ed98bd5c08076f54a9893f502b3209bb,
-    type: 3}
-  m_PrefabInstance: {fileID: 511472717}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &266413319
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,32 +1660,37 @@ PrefabInstance:
     - target: {fileID: 5565270259849734063, guid: ed98bd5c08076f54a9893f502b3209bb,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -311.99997
-      objectReference: {fileID: 0}
-    - target: {fileID: 5565270259849734063, guid: ed98bd5c08076f54a9893f502b3209bb,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 168.1
+      value: -267.6
       objectReference: {fileID: 0}
     - target: {fileID: 5565270259849734063, guid: ed98bd5c08076f54a9893f502b3209bb,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5358437
+      value: 2.2876017
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565270259849734063, guid: ed98bd5c08076f54a9893f502b3209bb,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.34918702
       objectReference: {fileID: 0}
     - target: {fileID: 5565270260609120348, guid: ed98bd5c08076f54a9893f502b3209bb,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -312
+      value: -268.2
       objectReference: {fileID: 0}
     - target: {fileID: 5565270260609120348, guid: ed98bd5c08076f54a9893f502b3209bb,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 168
+      propertyPath: m_SizeDelta.x
+      value: 268.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565270260609120348, guid: ed98bd5c08076f54a9893f502b3209bb,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 70.4
       objectReference: {fileID: 0}
     - target: {fileID: 5565270260609120350, guid: ed98bd5c08076f54a9893f502b3209bb,
         type: 3}
-      propertyPath: m_Text
-      value: Planet Integrity at 100%
+      propertyPath: m_FontData.m_FontSize
+      value: 36
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed98bd5c08076f54a9893f502b3209bb, type: 3}
@@ -3110,25 +3103,18 @@ Transform:
   m_Father: {fileID: 657100976}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1243825053 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5565270260396697881, guid: ed98bd5c08076f54a9893f502b3209bb,
+--- !u!114 &1243825054 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1243825054, guid: ed98bd5c08076f54a9893f502b3209bb,
     type: 3}
   m_PrefabInstance: {fileID: 511472717}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1243825054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1243825053}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 428aab49414f77943993638f0c7afca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthText: {fileID: 189764943}
 --- !u!1 &1255507365
 GameObject:
   m_ObjectHideFlags: 0

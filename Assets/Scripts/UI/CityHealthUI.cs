@@ -7,6 +7,6 @@ public class CityHealthUI : MonoBehaviour
 
     public void SetHealthText(CityManager cm)
     {
-        healthText.text = $"Planet Integrity at {cm.HealthPercentage.ToString("0")}%";
+        healthText.text = $"Health: {cm.HealthPercentage.ToString("0")}%";
     }
 }
