@@ -88,7 +88,7 @@ MonoBehaviour:
   agent_state: 0
   to_node: {fileID: 0}
   next_node: {fileID: 0}
-  speed: 15
+  speed: 22
   b_groundNav: 0
 --- !u!54 &1629078913
 Rigidbody:

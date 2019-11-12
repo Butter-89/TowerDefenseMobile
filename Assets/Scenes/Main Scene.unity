@@ -212,6 +212,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ButtonClick
       objectReference: {fileID: 0}
+    - target: {fileID: 880945816, guid: 65def64e091b80b42b20acf395fa8e0a, type: 3}
+      propertyPath: FireRate
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65def64e091b80b42b20acf395fa8e0a, type: 3}
 --- !u!1 &62297699
@@ -841,6 +845,20 @@ PrefabInstance:
       propertyPath: cameraController
       value: 
       objectReference: {fileID: 122986828}
+    - target: {fileID: 3889171154999379829, guid: 65def64e091b80b42b20acf395fa8e0a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 122986828}
+    - target: {fileID: 3889171154999379829, guid: 65def64e091b80b42b20acf395fa8e0a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 880945816, guid: 65def64e091b80b42b20acf395fa8e0a, type: 3}
+      propertyPath: FireRate
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2539426367180477697, guid: 65def64e091b80b42b20acf395fa8e0a,
         type: 3}
       propertyPath: m_IsActive
@@ -915,16 +933,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 3889171154999379829, guid: 65def64e091b80b42b20acf395fa8e0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 122986828}
-    - target: {fileID: 3889171154999379829, guid: 65def64e091b80b42b20acf395fa8e0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ButtonClick
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65def64e091b80b42b20acf395fa8e0a, type: 3}
@@ -6102,6 +6110,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraMover
       objectReference: {fileID: 0}
+    - target: {fileID: 5380831302590127414, guid: 4aba6efc2b93fba41b00116168dde613,
+        type: 3}
+      propertyPath: touch
+      value: 
+      objectReference: {fileID: 1092952114428899255}
+    - target: {fileID: 5380831302590127414, guid: 4aba6efc2b93fba41b00116168dde613,
+        type: 3}
+      propertyPath: swipe
+      value: 
+      objectReference: {fileID: 713036955}
+    - target: {fileID: 5380831302590127414, guid: 4aba6efc2b93fba41b00116168dde613,
+        type: 3}
+      propertyPath: camera1
+      value: 
+      objectReference: {fileID: 6765237143998850881}
+    - target: {fileID: 5380831302590127414, guid: 4aba6efc2b93fba41b00116168dde613,
+        type: 3}
+      propertyPath: camera2
+      value: 
+      objectReference: {fileID: 1461677764}
+    - target: {fileID: 5380831302590127414, guid: 4aba6efc2b93fba41b00116168dde613,
+        type: 3}
+      propertyPath: camera3
+      value: 
+      objectReference: {fileID: 1031843950}
     - target: {fileID: 5380831303079436762, guid: 4aba6efc2b93fba41b00116168dde613,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6162,31 +6195,6 @@ PrefabInstance:
       propertyPath: pathCreator
       value: 
       objectReference: {fileID: 1625256128}
-    - target: {fileID: 5380831302590127414, guid: 4aba6efc2b93fba41b00116168dde613,
-        type: 3}
-      propertyPath: touch
-      value: 
-      objectReference: {fileID: 1092952114428899255}
-    - target: {fileID: 5380831302590127414, guid: 4aba6efc2b93fba41b00116168dde613,
-        type: 3}
-      propertyPath: swipe
-      value: 
-      objectReference: {fileID: 713036955}
-    - target: {fileID: 5380831302590127414, guid: 4aba6efc2b93fba41b00116168dde613,
-        type: 3}
-      propertyPath: camera1
-      value: 
-      objectReference: {fileID: 6765237143998850881}
-    - target: {fileID: 5380831302590127414, guid: 4aba6efc2b93fba41b00116168dde613,
-        type: 3}
-      propertyPath: camera2
-      value: 
-      objectReference: {fileID: 1461677764}
-    - target: {fileID: 5380831302590127414, guid: 4aba6efc2b93fba41b00116168dde613,
-        type: 3}
-      propertyPath: camera3
-      value: 
-      objectReference: {fileID: 1031843950}
     - target: {fileID: 5380831302610029328, guid: 4aba6efc2b93fba41b00116168dde613,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -6282,6 +6290,35 @@ PrefabInstance:
       propertyPath: cameraController
       value: 
       objectReference: {fileID: 122986828}
+    - target: {fileID: 771095425973017908, guid: 65def64e091b80b42b20acf395fa8e0a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889171154999379829, guid: 65def64e091b80b42b20acf395fa8e0a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 122986828}
+    - target: {fileID: 3889171154999379829, guid: 65def64e091b80b42b20acf395fa8e0a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889171154999379829, guid: 65def64e091b80b42b20acf395fa8e0a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889171154999379829, guid: 65def64e091b80b42b20acf395fa8e0a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 880945816, guid: 65def64e091b80b42b20acf395fa8e0a, type: 3}
+      propertyPath: FireRate
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1268755691830169778, guid: 65def64e091b80b42b20acf395fa8e0a,
         type: 3}
       propertyPath: near clip plane
@@ -6346,31 +6383,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -3.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 771095425973017908, guid: 65def64e091b80b42b20acf395fa8e0a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3889171154999379829, guid: 65def64e091b80b42b20acf395fa8e0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 122986828}
-    - target: {fileID: 3889171154999379829, guid: 65def64e091b80b42b20acf395fa8e0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ButtonClick
-      objectReference: {fileID: 0}
-    - target: {fileID: 3889171154999379829, guid: 65def64e091b80b42b20acf395fa8e0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3889171154999379829, guid: 65def64e091b80b42b20acf395fa8e0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65def64e091b80b42b20acf395fa8e0a, type: 3}
