@@ -4621,7 +4621,7 @@ PrefabInstance:
     - target: {fileID: 3374263935271097666, guid: aa4056a8a81149d49b36ab2bfc0695b6,
         type: 3}
       propertyPath: CityHealth
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3374263935271097666, guid: aa4056a8a81149d49b36ab2bfc0695b6,
         type: 3}
