@@ -27,10 +27,8 @@ public class TouchDetection : MonoBehaviour
                 {
                     towerSwap.SwapTower(raycastHit.transform.parent.gameObject.transform.localPosition);
                     Transform turrent = raycastHit.transform.parent.Find("Turret Low");
-                        
-                    cameraController.towerTransform = turrent;
-                cameraController.tagName = raycastHit.transform.parent.tag;
-                    Debug.Log(raycastHit.transform.parent.tag);
+                cameraController.towerTransform = turrent;
+                    Debug.Log(turrent);
 
                 }
             }

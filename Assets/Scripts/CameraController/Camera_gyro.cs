@@ -9,7 +9,6 @@ public class Camera_gyro : MonoBehaviour
 
     // Start is called before the first frame update
     public Camera camera;
-    
     public float cameraMoveAnimationSpeed;
     public GameObject turrent;
     float xRot, yRot, zRot;
@@ -84,37 +83,17 @@ public class Camera_gyro : MonoBehaviour
             if (camera.transform.position == movePosition)
             {
                 swipe.isTouchEnabled = false;
-                MainCamera.GetComponent<Camera>().enabled = false ;
+               // MainCamera.SetActive(false);
                 MainCameraAudioListener.enabled = false;
 
+            towerTransform.rotation = camera.transform.rotation;
 
-                if (tagName == "Tower")
-                {
-                     camera1.SetActive(true);
-                    audioListenerCamera1.enabled = true;
-                    camera = camera1.GetComponent<Camera>();
+                camera1.SetActive(true);
+                audioListenerCamera1.enabled = true;
+                
+                camera = camera1.GetComponent<Camera>();
 
-
-                }
-                if (tagName == "Tower1")
-                {
-                    camera2.SetActive(true);
-
-                    audioListenerCamera2.enabled = true;
-
-                    camera = camera2.GetComponent<Camera>();
-                }
-                if (tagName == "Tower2")
-                {
-                    camera3.SetActive(true);
-
-                    audioListenerCamera3.enabled = true;
-
-                    camera = camera3.GetComponent<Camera>();
-                }
-
-                towerTransform.rotation = camera.transform.rotation;
-
+                
             }
         }
         
