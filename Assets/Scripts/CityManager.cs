@@ -5,6 +5,8 @@ public class CityManager : MonoBehaviour
 {
     public short CityHealth = 10;
 
+    private CamShake camShake; 
+
     private short maxHealth;
     public short MaxHealth
     {
@@ -29,6 +31,7 @@ public class CityManager : MonoBehaviour
     public void Start()
     {
         maxHealth = CityHealth;
+        camShake = GameObject.Find("CamShakeManager").GetComponent<CamShake>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,6 +39,8 @@ public class CityManager : MonoBehaviour
         var parent = other.GetComponent<Agent>();
         if (parent)
         {
+            GameObject currentCam = Camera.current.transform.parent.gameObject;
+            StartCoroutine(camShake.Shake(currentCam, 0.15f, 0.4f));
             Destroy(parent.gameObject);
             --CityHealth;
            // Debug.Log(CityHealth);
