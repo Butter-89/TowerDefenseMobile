@@ -23,7 +23,7 @@ public class TowerSwap : MonoBehaviour
     /// </summary>
     public void SwapTower(Vector3 selectedTower)
     {
-        Vector3 offset = new Vector3(selectedTower.x,selectedTower.y + 7f,selectedTower.z);
+        Vector3 offset = new Vector3(selectedTower.x,selectedTower.y /*+ 7f*/,selectedTower.z);
 
         cameraController.isMoveCamera = true;
        cameraController.movePosition = offset;
