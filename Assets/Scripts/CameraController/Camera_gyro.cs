@@ -5,8 +5,8 @@ using UnityEngine;
 public class Camera_gyro : MonoBehaviour
 {
     public TouchDetection touch;
-    public SwipeDetection swipe;
-    public TowerManager towerManager;
+    public Swipe swipe;
+    
     /// <summary>
     /// Controls the rotation speed of the selected tower
     /// </summary>
@@ -28,7 +28,10 @@ public class Camera_gyro : MonoBehaviour
     public Camera camera;
     [HideInInspector]
     public Transform towerTransform;
+    [HideInInspector]
+    public Quaternion initialTowerRotation;
     //debug
+    public GameObject cameraPlaceHolder;
 
     private float startTime;
     private float journeydis;
@@ -72,8 +75,8 @@ public class Camera_gyro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-      
+
+       // Debug.Log(towerManager.getInitialRotation);
         
         moveCamera();
         BackToMenu();
@@ -104,6 +107,7 @@ public class Camera_gyro : MonoBehaviour
                 {
                     Vector2 current = touchTest.deltaPosition;
                     camera.transform.Rotate(new Vector3(-current.y, -current.x, 0) * Time.deltaTime * TurrentRotationSpeed);
+                   towerTransform.rotation = camera.transform.rotation;
                 }
                 else if (touchTest.phase == TouchPhase.Ended || touchTest.phase == TouchPhase.Canceled)
                 {
@@ -115,58 +119,65 @@ public class Camera_gyro : MonoBehaviour
             journeydis = Vector3.Distance(MainCamera.transform.position, movePosition);
          
              fj = (Time.deltaTime) * cameraMoveAnimationSpeed / journeydis*100 ;
-           // Debug.Log("this is in camera"+movePosition);
+            //Debug.Log("this is in camera"+movePosition);
             MainCamera.transform.position = Vector3.Lerp(MainCamera.transform.position, movePosition, fj);
+            //Debug.Log("Moving Camera" + MainCamera.transform.position);
+            //if (  MainCamera.transform.position == movePosition && journeydis ==0)
+            //{
+            //    Debug.Log("Called?");
+            //    towerTransform.rotation = camera.transform.rotation;
+            //}
 
 
-            
-            if (journeydis==0 || MainCamera.transform.position == movePosition)
-            {
-                
-                swipe.isTouchEnabled = false;
-                MainCameraAudioListener.enabled = false;
-              if (tagName == "Tower")
-            {
-                camera1.SetActive(true);
-                audioListenerCamera1.enabled = true;
-                camera = camera1.GetComponent<Camera>();
-
-
-            }
-            if (tagName == "Tower1")
-            {
-                camera2.SetActive(true);
-
-                audioListenerCamera2.enabled = true;
-
-                camera = camera2.GetComponent<Camera>();
-            }
-            if (tagName == "Tower2")
-            {
-                   // Debug.Log(movePosition);
-                camera3.SetActive(true);
-
-                audioListenerCamera3.enabled = true;
-
-                camera = camera3.GetComponent<Camera>();
-            }
-                if (tagName == "Tower3")
-                {
-                    // Debug.Log(movePosition);
-                    camera4.SetActive(true);
-
-                    audioListenerCamera4.enabled = true;
-
-                    camera = camera4.GetComponent<Camera>();
-                }
 
                 if (cameraRotationFlag == 0)
                 {
-                    Debug.Log("called once");
-                    towerTransform.rotation = towerManager.getInitialRotation;
+                    
+                if (journeydis == 0 || MainCamera.transform.position == movePosition)
+                {
+                  //  MainCamera.transform.rotation = MainCameraRotation;
+                    cameraPlaceHolder.transform.rotation = new Quaternion(0,0,0,0);
+                       towerTransform.rotation = initialTowerRotation;
+
+                    swipe.enable = false;
+                    MainCameraAudioListener.enabled = false;
+                    if (tagName == "Tower")
+                    {
+                        camera1.SetActive(true);
+                        audioListenerCamera1.enabled = true;
+                        camera = camera1.GetComponent<Camera>();
+
+
+                    }
+                    if (tagName == "Tower1")
+                    {
+                        camera2.SetActive(true);
+
+                        audioListenerCamera2.enabled = true;
+
+                        camera = camera2.GetComponent<Camera>();
+                    }
+                    if (tagName == "Tower2")
+                    {
+                        // Debug.Log(movePosition);
+                        camera3.SetActive(true);
+
+                        audioListenerCamera3.enabled = true;
+
+                        camera = camera3.GetComponent<Camera>();
+                    }
+                    if (tagName == "Tower3")
+                    {
+                        // Debug.Log(movePosition);
+                        camera4.SetActive(true);
+
+                        audioListenerCamera4.enabled = true;
+
+                        camera = camera4.GetComponent<Camera>();
+                    }
                     cameraRotationFlag = 1;
                 }
-                towerTransform.rotation = camera.transform.rotation;
+               // towerTransform.rotation = camera.transform.rotation;
             }
         }
         
@@ -177,7 +188,7 @@ public class Camera_gyro : MonoBehaviour
         isBackToMenu = true;
         isMoveCamera = false;
         journeydis = 0;
-
+        swipe.enable = true;
         flagMainMenu = 0;
         cameraRotationFlag = 0;
     }
@@ -194,13 +205,16 @@ public class Camera_gyro : MonoBehaviour
              fj = (Time.deltaTime) * cameraMoveAnimationSpeed / journeydis *100;
            // Debug.Log(fj);
             MainCamera.transform.position = Vector3.Lerp(MainCamera.transform.position, MainCameraLocation, fj);
+            
             if (flagMainMenu == 0)
             {
-                MainCamera.transform.rotation = MainCameraRotation;
+                //MainCamera.transform.rotation = MainCameraRotation;
+                cameraPlaceHolder.transform.rotation = new Quaternion(0, 0, 0, 0);
+                //Debug.Log("This");
 
                 flagMainMenu = 1;
             }
-            if (MainCamera.transform.position == MainCameraLocation)
+            if (MainCamera.transform.position == MainCameraLocation || journeydis == 0)
             {
                 isBackToMenu = false;
             }
@@ -214,7 +228,7 @@ public class Camera_gyro : MonoBehaviour
     }
     private void resetCamera()
     {
-        swipe.isTouchEnabled = true;
+        //swipe.enable = true;
         MainCameraAudioListener.enabled = true;
         camera1.SetActive(false);
         audioListenerCamera1.enabled = false;

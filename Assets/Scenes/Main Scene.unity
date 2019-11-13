@@ -2117,6 +2117,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 423998411, guid: ed98bd5c08076f54a9893f502b3209bb, type: 3}
+      propertyPath: m_Name
+      value: Score Container
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed98bd5c08076f54a9893f502b3209bb, type: 3}
 --- !u!1 &540355450
@@ -2783,6 +2787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 25
+  enable: 1
   rb: {fileID: 917412752}
 --- !u!4 &713036957
 Transform:
@@ -7745,7 +7750,7 @@ PrefabInstance:
         type: 3}
       propertyPath: swipe
       value: 
-      objectReference: {fileID: 713036955}
+      objectReference: {fileID: 713036956}
     - target: {fileID: 5380831302590127414, guid: 4aba6efc2b93fba41b00116168dde613,
         type: 3}
       propertyPath: camera1
@@ -7975,7 +7980,7 @@ PrefabInstance:
     - target: {fileID: 3376045472066015187, guid: 65def64e091b80b42b20acf395fa8e0a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.35
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3376045472066015187, guid: 65def64e091b80b42b20acf395fa8e0a,
         type: 3}
@@ -8006,6 +8011,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 880945816, guid: 65def64e091b80b42b20acf395fa8e0a, type: 3}
+      propertyPath: FireRate
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 1268755691830169778, guid: 65def64e091b80b42b20acf395fa8e0a,
         type: 3}

@@ -16,7 +16,7 @@ public class TowerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        initialRotation = camera.transform.rotation;
     }
     public Quaternion getInitialRotation { get { return initialRotation; } }
 }

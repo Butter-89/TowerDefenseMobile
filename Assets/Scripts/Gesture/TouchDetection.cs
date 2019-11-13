@@ -27,9 +27,9 @@ public class TouchDetection : MonoBehaviour
             {
                 if (raycastHit.transform.parent.gameObject.tag == "Tower" || raycastHit.transform.parent.gameObject.tag == "Tower1" || raycastHit.transform.parent.gameObject.tag == "Tower2")
                 {
-                    // Debug.Log(raycastHit.transform.parent.gameObject.transform.localPosition);
                     towerSwap.SwapTower(raycastHit.transform.parent.gameObject.transform.localPosition);
 
+                    cameraController.initialTowerRotation= raycastHit.transform.parent.gameObject.transform.GetComponent<TowerManager>().getInitialRotation;
                     cameraController.isBackToMenu = false;
                     Transform turrent = raycastHit.transform.parent.Find("Turret Low");
                     cameraController.towerTransform = turrent;

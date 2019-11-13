@@ -5,9 +5,10 @@ using UnityEngine;
 public class AgentHealth : MonoBehaviour
 {
     // Start is called before the first frame update
+    private int count;
     void Start()
     {
-        
+        count = 0;
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -18,7 +19,13 @@ public class AgentHealth : MonoBehaviour
             //this.enabled = false;
             Destroy(pm.gameObject);
             Destroy(this.gameObject);
+            count++;
+            Debug.Log("Destoryed!"+count);
         }
 
+    }
+    public int GetEnemyDestoriedCount
+    {
+        get { return count; }
     }
 }

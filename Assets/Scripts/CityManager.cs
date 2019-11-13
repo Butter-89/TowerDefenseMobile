@@ -38,7 +38,7 @@ public class CityManager : MonoBehaviour
         {
             Destroy(parent.gameObject);
             --CityHealth;
-            Debug.Log(CityHealth);
+           // Debug.Log(CityHealth);
             OnAreaAttacked.Invoke();
             // Game over
             if (CityHealth <= 0)

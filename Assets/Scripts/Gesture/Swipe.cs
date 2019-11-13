@@ -11,7 +11,7 @@ public class Swipe : MonoBehaviour
     private Vector3 touchPoi;
     private Vector3 dir;
     public float speed = 10f;
-   
+    public bool enable = true;
     public GameObject rb;
     void Start()
     {
@@ -42,7 +42,7 @@ public class Swipe : MonoBehaviour
         }
         #endregion
         #region Mobile Inputs
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && enable == true)
         {
             Touch touchTest = Input.GetTouch(0);
            if (touchTest.phase == TouchPhase.Moved)
