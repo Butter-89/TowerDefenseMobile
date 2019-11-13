@@ -48,7 +48,7 @@ public class Swipe : MonoBehaviour
            if (touchTest.phase == TouchPhase.Moved)
             {
                 Vector2 current = touchTest.deltaPosition;
-                transform.Rotate(new Vector3(-current.y, -current.x, 0) * Time.deltaTime * speed);
+                rb.transform.Rotate(new Vector3(-current.y, -current.x, 0) * Time.deltaTime * speed);
             }
             else if (touchTest.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
             {
