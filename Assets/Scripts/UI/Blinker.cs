@@ -8,8 +8,17 @@ public class Blinker : MonoBehaviour
     bool blinking;
 
     public float BlinkingDuration = 2.0f;
-    public float BlinkingSpeed = 5.0f;
+
+    private float BlinkingSpeed
+    {
+        get => lowAlert ? LowAlertBlinkingSpeed : HighAlertBlinkingSpeed;
+    }
+
+    public float HighAlertBlinkingSpeed = 5.0f;
+    public float LowAlertBlinkingSpeed = 2.0f;
     public bool StartHidden = true;
+
+    private bool lowAlert = true;
 
     float blinkingTime = 0.0f;
 
@@ -35,9 +44,10 @@ public class Blinker : MonoBehaviour
         }
     }
 
-    public void StartBlinking()
+    public void StartBlinking(AlertSeverity severity)
     {
         blinking = true;
+        lowAlert = severity == AlertSeverity.Low;
         Invoke("StopBlinking", BlinkingDuration);
     }
 
