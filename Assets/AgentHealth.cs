@@ -6,6 +6,7 @@ public class AgentHealth : MonoBehaviour
 {
     // Start is called before the first frame update
     private int count;
+    public AudioSource explosion;
     void Start()
     {
         count = 0;
@@ -20,6 +21,7 @@ public class AgentHealth : MonoBehaviour
             Destroy(pm.gameObject);
             Destroy(this.gameObject);
             count++;
+            explosion.Play();
             Debug.Log("Destoryed!"+count);
         }
 
