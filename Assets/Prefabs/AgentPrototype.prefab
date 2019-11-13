@@ -50,7 +50,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.25, y: 0, z: 0}
 --- !u!195 &3679741801947078072
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -337,17 +337,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: bfeb71dd234108b40a47efa79cacef10,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bfeb71dd234108b40a47efa79cacef10,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bfeb71dd234108b40a47efa79cacef10,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 856365191234717131, guid: bfeb71dd234108b40a47efa79cacef10,
         type: 3}
