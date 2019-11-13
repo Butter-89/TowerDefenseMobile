@@ -15,9 +15,9 @@ public class AlertUI : MonoBehaviour
         }
     }
 
-    public void Alert(Collider collider, string tag)
+    public void Alert(Collider collider, string tag, AlertSeverity severity)
     {
         if (!collider.gameObject.GetComponentInParent<Agent>()) return;
-        towerAlerts[tag].GetComponent<Blinker>()?.StartBlinking();
+        towerAlerts[tag].GetComponent<Blinker>()?.StartBlinking(severity);
     }
 }

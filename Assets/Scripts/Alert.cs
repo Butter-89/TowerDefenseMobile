@@ -7,11 +7,15 @@ public class Alert : MonoBehaviour
     /// </summary>
     public float AlertCooldown = 5.0f;
 
+    public AlertSeverity severity;
+
     private float sinceAlert;
 
+
     [System.Serializable]
-    public class AlertZoneEnteredEvent : UnityEngine.Events.UnityEvent<Collider, string> { }
+    public class AlertZoneEnteredEvent : UnityEngine.Events.UnityEvent<Collider, string, AlertSeverity> { }
     public AlertZoneEnteredEvent OnZoneEntered;
+
 
     private void Start()
     {
@@ -27,7 +31,13 @@ public class Alert : MonoBehaviour
     {
         if (sinceAlert < AlertCooldown)
             return;
-        OnZoneEntered.Invoke(other, gameObject.tag);
+        OnZoneEntered.Invoke(other, gameObject.tag, severity);
         sinceAlert = 0;
     }
+}
+
+public enum AlertSeverity
+{
+    Low,
+    High
 }
