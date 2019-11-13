@@ -7,6 +7,7 @@ using PathCreation;
 public class WaveData : MonoBehaviour
 {
     public PathCreator[] paths;
+    public float wait;
     public float interval;
     public int qty;
 }
