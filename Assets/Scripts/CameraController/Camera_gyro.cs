@@ -47,6 +47,12 @@ public class Camera_gyro : MonoBehaviour
     public GameObject camera3;
     public GameObject camera4;
 
+    private Transform cam1Pos;
+    private Transform cam2Pos;
+    private Transform cam3Pos;
+    private Transform cam4Pos;
+
+
     AudioListener MainCameraAudioListener;
     AudioListener audioListenerCamera1;
     AudioListener audioListenerCamera2;
@@ -69,7 +75,17 @@ public class Camera_gyro : MonoBehaviour
         audioListenerCamera3 = camera3.GetComponent<AudioListener>();
         audioListenerCamera4 = camera4.GetComponent<AudioListener>();
 
+        //Xiubo edited here!
+        cam1Pos = camera1.transform;
+        cam2Pos = camera2.transform;
+        cam3Pos = camera3.transform;
+        cam4Pos = camera4.transform;
 
+        camera1.SetActive(false);
+        camera2.SetActive(false);
+        camera3.SetActive(false);
+        camera4.SetActive(false);
+        //=================
     }
 
     // Update is called once per frame

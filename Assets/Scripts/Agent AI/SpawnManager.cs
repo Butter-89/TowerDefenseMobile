@@ -10,6 +10,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject spawned_agent;
     private PathCreator[] path_list;
     private float time_interval;
+    private float time_wait;
     private int num_toSpawn;
     private int current_num;
     private int current_wave;
@@ -19,13 +20,14 @@ public class SpawnManager : MonoBehaviour
         current_num = 0;
         LoadWaveData(current_wave);
 
-        InvokeRepeating("Spawn", time_interval, time_interval);
+        InvokeRepeating("Spawn", time_wait, time_interval);
     }
 
     void Spawn()
     {
         if (current_num >= num_toSpawn)
         {
+            //used to stop spawning?
             CancelInvoke("Spawn");
             Debug.Log("Cancel invoke");
         }
@@ -46,11 +48,13 @@ public class SpawnManager : MonoBehaviour
             {
                 //Debug.Log("Current num = to spawn num");
                 //Debug.Log(current_wave + 1 + " " + waves.Count);
+                CancelInvoke("Spawn");
                 if(current_wave + 1 <= waves.Count - 1)
                 {
                     //Debug.Log("!?");
                     current_wave++;
                     LoadWaveData(current_wave);
+                    InvokeRepeating("Spawn", time_wait, time_interval);
                 } 
             }
         }
@@ -59,6 +63,7 @@ public class SpawnManager : MonoBehaviour
     void LoadWaveData(int i)
     {
         path_list = waves[i].paths;
+        time_wait = waves[i].wait;
         time_interval = waves[i].interval;
         num_toSpawn = waves[i].qty;
         //initialize

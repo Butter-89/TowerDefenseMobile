@@ -47,7 +47,7 @@ MonoBehaviour:
   target: {fileID: 0}
   isHoming: 0
   ProjectileVelocity: 100
-  MaxLifetime: 15
+  MaxLifetime: 4
 --- !u!1 &4822019113369706944
 GameObject:
   m_ObjectHideFlags: 0
