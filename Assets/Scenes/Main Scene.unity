@@ -2535,6 +2535,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Score Container
       objectReference: {fileID: 0}
+    - target: {fileID: 1243825054, guid: ed98bd5c08076f54a9893f502b3209bb, type: 3}
+      propertyPath: ScoreText
+      value: 
+      objectReference: {fileID: 2046209764}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed98bd5c08076f54a9893f502b3209bb, type: 3}
 --- !u!224 &511472718 stripped
@@ -8725,6 +8729,7 @@ GameObject:
   - component: {fileID: 2013502013}
   - component: {fileID: 2013502012}
   - component: {fileID: 2013502011}
+  - component: {fileID: 2013502014}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -8831,6 +8836,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013502009}
   m_CullTransparentMesh: 0
+--- !u!114 &2013502014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013502009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69810f5f97ef9f4588bae7b78d1b0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2017006339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9003,6 +9020,18 @@ Transform:
   m_Father: {fileID: 101516336}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2046209764 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1093599527, guid: ed98bd5c08076f54a9893f502b3209bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 511472717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2057585288 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7454210177240077063, guid: 65def64e091b80b42b20acf395fa8e0a,
@@ -9640,7 +9669,7 @@ PrefabInstance:
     - target: {fileID: 2539426367180477697, guid: 65def64e091b80b42b20acf395fa8e0a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 771095425973017908, guid: 65def64e091b80b42b20acf395fa8e0a,
         type: 3}
