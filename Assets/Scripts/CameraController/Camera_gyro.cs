@@ -165,45 +165,45 @@ public class Camera_gyro : MonoBehaviour
                     //MainCameraAudioListener.enabled = false;
                     if (tagName == "Tower")
                     {
-                        //  canvas1.SetActive(true); 
-                        camera1.SetActive(true);
-                        audioListenerCamera1.enabled = true;
-                        camera = camera1.GetComponent<Camera>();
+                         canvas1.SetActive(true); 
+                        //camera1.SetActive(true);
+                        //audioListenerCamera1.enabled = true;
+                        //camera = camera1.GetComponent<Camera>();
 
 
                     }
                     if (tagName == "Tower1")
                     {
-                      //  canvas2.SetActive(true);
-                        camera2.SetActive(true);
+                       canvas2.SetActive(true);
+                        //camera2.SetActive(true);
 
-                        audioListenerCamera2.enabled = true;
+                        //audioListenerCamera2.enabled = true;
 
-                        camera = camera2.GetComponent<Camera>();
+                        //camera = camera2.GetComponent<Camera>();
                     }
                     if (tagName == "Tower2")
                     {
-                        // canvas3.SetActive(true);
+                        canvas3.SetActive(true);
                         // Debug.Log(movePosition);
-                        camera3.SetActive(true);
+                        //camera3.SetActive(true);
 
-                        audioListenerCamera3.enabled = true;
+                        //audioListenerCamera3.enabled = true;
 
-                        camera = camera3.GetComponent<Camera>();
+                        //camera = camera3.GetComponent<Camera>();
                     }
                     if (tagName == "Tower3")
                     {
-                        // canvas4.SetActive(true);
+                        canvas4.SetActive(true);
                         // Debug.Log(movePosition);
-                        camera4.SetActive(true);
+                        //camera4.SetActive(true);
 
-                        audioListenerCamera4.enabled = true;
+                        //audioListenerCamera4.enabled = true;
 
-                        camera = camera4.GetComponent<Camera>();
+                        //camera = camera4.GetComponent<Camera>();
                     }
                     cameraRotationFlag = 1;
                 }
-                towerTransform.rotation = camera.transform.rotation;
+              //  towerTransform.rotation = camera.transform.rotation;
             }
         }
         
@@ -265,20 +265,20 @@ public class Camera_gyro : MonoBehaviour
         //camera1.SetActive(false);
         canvas1.SetActive(false);
         audioListenerCamera1.enabled = false;
-        disableShooting(camera1);
+       // disableShooting(camera1);
 
         //camera2.SetActive(false);
         canvas2.SetActive(false);
         audioListenerCamera2.enabled = false;
-        disableShooting(camera2);
+       // disableShooting(camera2);
 
         //camera3.SetActive(false);
         canvas3.SetActive(false);
         audioListenerCamera3.enabled = false;
-        disableShooting(camera3);
+       // disableShooting(camera3);
 
         camera4.SetActive(false);
-        disableShooting(camera4);
+       // disableShooting(camera4);
         //camera4.SetActive(false);
         canvas4.SetActive(false);
         audioListenerCamera4.enabled = false;
