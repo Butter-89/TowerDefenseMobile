@@ -121,7 +121,7 @@ public class Camera_gyro : MonoBehaviour
                 if (touchTest.phase == TouchPhase.Moved)
                 {
                     Vector2 current = touchTest.deltaPosition;
-                    camera.transform.Rotate(new Vector3(-current.y, -current.x, 0) * Time.deltaTime * TurrentRotationSpeed);
+                    camera.transform.Rotate(new Vector3(-current.y , current.x, 0) * Time.deltaTime * TurrentRotationSpeed);
                    towerTransform.rotation = camera.transform.rotation;
                 }
                 else if (touchTest.phase == TouchPhase.Ended || touchTest.phase == TouchPhase.Canceled)
