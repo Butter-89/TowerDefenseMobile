@@ -28,12 +28,11 @@ public class AgentHealth : MonoBehaviour
         if (pm)
         {
             //this.enabled = false;
-            if (!explosion.isPlaying)
-            {
-                explosion.Play();
-            }
-            GameObject go = Instantiate(explosionParticle) as GameObject;
-            go.transform.position = transform.position;
+            //if (!explosion.isPlaying)
+            //{
+            //    explosion.Play();
+            //}
+            
             Destroy(pm.gameObject);
             Explode();
             Debug.Log("Destoryed!"+count);
@@ -47,9 +46,10 @@ public class AgentHealth : MonoBehaviour
 
     public void Explode()
     {
-        //explosion.Play();
-        
-        foreach(var renderer in GetComponentsInChildren<MeshRenderer>())
+        GameObject go = Instantiate(explosionParticle) as GameObject;
+        go.transform.position = transform.position;
+        explosion.Play();
+        foreach (var renderer in GetComponentsInChildren<MeshRenderer>())
         {
             renderer.enabled = false;
         }
