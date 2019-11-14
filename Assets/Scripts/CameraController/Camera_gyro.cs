@@ -147,7 +147,12 @@ public class Camera_gyro : MonoBehaviour
             mainScreenTransform = MainCamera.transform;
             MainCamera.transform.position = Vector3.Lerp(MainCamera.transform.position, movePosition, fj);
             
-            
+            //Debug.Log("Moving Camera" + MainCamera.transform.position);
+            //if (  MainCamera.transform.position == movePosition && journeydis ==0)
+            //{
+            //    Debug.Log("Called?");
+            //    towerTransform.rotation = camera.transform.rotation;
+            //}
 
 
 
@@ -162,10 +167,10 @@ public class Camera_gyro : MonoBehaviour
                        towerTransform.rotation = initialTowerRotation;
 
                     swipe.enable = false;
-                    //MainCameraAudioListener.enabled = false;
+                    MainCameraAudioListener.enabled = false;
                     if (tagName == "Tower")
                     {
-                        //  canvas1.SetActive(true); 
+                        canvas1.SetActive(true);
                         camera1.SetActive(true);
                         audioListenerCamera1.enabled = true;
                         camera = camera1.GetComponent<Camera>();
@@ -174,7 +179,7 @@ public class Camera_gyro : MonoBehaviour
                     }
                     if (tagName == "Tower1")
                     {
-                      //  canvas2.SetActive(true);
+                        canvas2.SetActive(true);
                         camera2.SetActive(true);
 
                         audioListenerCamera2.enabled = true;
@@ -183,7 +188,7 @@ public class Camera_gyro : MonoBehaviour
                     }
                     if (tagName == "Tower2")
                     {
-                        // canvas3.SetActive(true);
+                        canvas3.SetActive(true);
                         // Debug.Log(movePosition);
                         camera3.SetActive(true);
 
@@ -193,7 +198,7 @@ public class Camera_gyro : MonoBehaviour
                     }
                     if (tagName == "Tower3")
                     {
-                        // canvas4.SetActive(true);
+                        canvas4.SetActive(true);
                         // Debug.Log(movePosition);
                         camera4.SetActive(true);
 
