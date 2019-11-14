@@ -363,7 +363,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 5380831302611860602}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd5c5d43dcfeea344ae2ef482cf21f0f, type: 3}
   m_Name: 
@@ -1286,10 +1286,10 @@ Transform:
   m_Children:
   - {fileID: 833142518}
   - {fileID: 376060679}
+  - {fileID: 1636438586}
   - {fileID: 325664695}
   - {fileID: 175933525}
   - {fileID: 1850281447540580679}
-  - {fileID: 1636438586}
   - {fileID: 2057585288}
   - {fileID: 2118928012}
   - {fileID: 1651551912}
@@ -3322,7 +3322,7 @@ PrefabInstance:
     - target: {fileID: 3027009984604313677, guid: b5ca41427778f9643985f0a8b61d4f42,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5ca41427778f9643985f0a8b61d4f42, type: 3}
@@ -3434,6 +3434,7 @@ GameObject:
   - component: {fileID: 1579769828}
   - component: {fileID: 1579769827}
   - component: {fileID: 1579769826}
+  - component: {fileID: 1579769829}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -3540,6 +3541,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579769824}
   m_CullTransparentMesh: 0
+--- !u!114 &1579769829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579769824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6f6e12326a04845abfccab56b475e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1624680238
 GameObject:
   m_ObjectHideFlags: 0
@@ -3582,6 +3595,7 @@ GameObject:
   - component: {fileID: 1636410876}
   - component: {fileID: 1636410875}
   - component: {fileID: 1636410874}
+  - component: {fileID: 1636410877}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -3688,6 +3702,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636410872}
   m_CullTransparentMesh: 0
+--- !u!114 &1636410877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636410872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69810f5f97ef9f4588bae7b78d1b0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1636438585
 GameObject:
   m_ObjectHideFlags: 0
@@ -3721,7 +3747,7 @@ RectTransform:
   - {fileID: 1776660082}
   - {fileID: 1828598020}
   m_Father: {fileID: 468111700}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5276,6 +5302,11 @@ PrefabInstance:
       propertyPath: canvas4
       value: 
       objectReference: {fileID: 1730596036}
+    - target: {fileID: 5380831302590127414, guid: 4aba6efc2b93fba41b00116168dde613,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5380831303079436762, guid: 4aba6efc2b93fba41b00116168dde613,
         type: 3}
       propertyPath: m_LocalPosition.x

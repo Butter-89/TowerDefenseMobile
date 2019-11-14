@@ -72,6 +72,7 @@ public class Camera_gyro : MonoBehaviour
    public bool isBackToMenu= false;
     void Start()
     {
+        MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         camera = MainCamera.GetComponent<Camera>();
         Input.gyro.enabled = false;
         MainCameraLocation = camera.transform.position;
