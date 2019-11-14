@@ -1410,6 +1410,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: planet_basic
       objectReference: {fileID: 0}
+    - target: {fileID: -7996341430962460841, guid: 25bc177beb280ac47931d88a4d35cd23,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 29fca59cd83524941b5186d8885f78c0, type: 2}
+    - target: {fileID: -7519736246355251781, guid: 25bc177beb280ac47931d88a4d35cd23,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 29fca59cd83524941b5186d8885f78c0, type: 2}
     - target: {fileID: -4216859302048453862, guid: 25bc177beb280ac47931d88a4d35cd23,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1480,16 +1490,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 320.86
       objectReference: {fileID: 0}
-    - target: {fileID: -7996341430962460841, guid: 25bc177beb280ac47931d88a4d35cd23,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 29fca59cd83524941b5186d8885f78c0, type: 2}
-    - target: {fileID: -7519736246355251781, guid: 25bc177beb280ac47931d88a4d35cd23,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 29fca59cd83524941b5186d8885f78c0, type: 2}
     - target: {fileID: -2942645444021431959, guid: 25bc177beb280ac47931d88a4d35cd23,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1639,9 +1639,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e753d7b94468e8408fb92d6b4c15277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlinkingDuration: 2
-  HighAlertBlinkingSpeed: 5
+  LowAlertBlinkingDuration: 2
+  HighAlertBlinkingDuration: 5
   LowAlertBlinkingSpeed: 2
+  HighAlertBlinkingSpeed: 5
   StartHidden: 1
 --- !u!1001 &396048419
 PrefabInstance:
@@ -2747,9 +2748,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e753d7b94468e8408fb92d6b4c15277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlinkingDuration: 2
-  HighAlertBlinkingSpeed: 5
+  LowAlertBlinkingDuration: 2
+  HighAlertBlinkingDuration: 5
   LowAlertBlinkingSpeed: 2
+  HighAlertBlinkingSpeed: 5
   StartHidden: 1
 --- !u!1 &601346850
 GameObject:
@@ -3185,6 +3187,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &725434484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 725434486}
+  - component: {fileID: 725434485}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &725434485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725434484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86ecd1ca87bb8d4d8cf8adedb5dcf7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+--- !u!4 &725434486
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725434484}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.652111, y: 24.667252, z: -45.700108}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &730063445
 GameObject:
@@ -4804,9 +4850,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e753d7b94468e8408fb92d6b4c15277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlinkingDuration: 2
-  HighAlertBlinkingSpeed: 5
+  LowAlertBlinkingDuration: 2
+  HighAlertBlinkingDuration: 5
   LowAlertBlinkingSpeed: 2
+  HighAlertBlinkingSpeed: 5
   StartHidden: 1
 --- !u!1 &1299591623
 GameObject:
@@ -5780,9 +5827,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e753d7b94468e8408fb92d6b4c15277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlinkingDuration: 2
-  HighAlertBlinkingSpeed: 5
+  LowAlertBlinkingDuration: 2
+  HighAlertBlinkingDuration: 5
   LowAlertBlinkingSpeed: 2
+  HighAlertBlinkingSpeed: 5
   StartHidden: 1
 --- !u!1 &1449978291 stripped
 GameObject:
