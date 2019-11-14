@@ -39,8 +39,8 @@ public class CityManager : MonoBehaviour
         var parent = other.GetComponent<Agent>();
         if (parent)
         {
-            GameObject currentCam = GameObject.FindGameObjectWithTag("MainCamera"); //Camera.current.transform.parent.gameObject;
-            StartCoroutine(camShake.Shake(currentCam, 0.15f, 0.4f));
+            GameObject currentCam = Camera.current.transform.parent.gameObject;
+            StartCoroutine(camShake.Shake(currentCam, 1f, 0.4f));
             Destroy(parent.gameObject);
             --CityHealth;
            // Debug.Log(CityHealth);
