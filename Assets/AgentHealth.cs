@@ -19,9 +19,7 @@ public class AgentHealth : MonoBehaviour
         {
             //this.enabled = false;
             Destroy(pm.gameObject);
-            Destroy(this.gameObject);
-            count++;
-            explosion.Play();
+            Explosion();
             Debug.Log("Destoryed!"+count);
         }
 
@@ -29,5 +27,19 @@ public class AgentHealth : MonoBehaviour
     public int GetEnemyDestoriedCount
     {
         get { return count; }
+    }
+
+    public void Explosion()
+    {
+        explosion.Play();
+        Destroy(this.gameObject, 5f);
+        foreach(var renderer in GetComponentsInChildren<Renderer>())
+        {
+            renderer.enabled = false;
+        }
+        GetComponent<SphereCollider>().enabled = false;
+        GetComponent<TrailRenderer>().enabled = false;
+        count++;
+        
     }
 }
