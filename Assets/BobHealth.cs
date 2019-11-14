@@ -2,22 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AgentHealth : MonoBehaviour
+public class BobHealth : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private int count;
+    public int health = 20;
     public AudioSource explosion;
     public GameObject explosionParticle;
     private GameData data;
     void Start()
     {
         data = GameObject.Find("GameManager").GetComponent<GameData>();
-        count = 0;
     }
-    
+
+
     private void OnCollisionEnter(Collision collision)
     {
-       // Debug.Log("Collision!");
         ProjectileMovement pm = collision.collider.GetComponentInParent<ProjectileMovement>();
         if (pm)
         {
@@ -26,18 +24,15 @@ public class AgentHealth : MonoBehaviour
             //{
             //    explosion.Play();
             //}
-            
+            health--;
             Destroy(pm.gameObject);
-            Explode();
-            Debug.Log("Destoryed!"+count);
+            if(health<=0)
+            {
+                Explode();
+            }
+            
         }
-
     }
-    public int GetEnemyDestoriedCount
-    {
-        get { return count; }
-    }
-
     public void Explode()
     {
         GameObject go = Instantiate(explosionParticle) as GameObject;
@@ -47,9 +42,10 @@ public class AgentHealth : MonoBehaviour
         {
             renderer.enabled = false;
         }
+        
         GetComponent<SphereCollider>().enabled = false;
         GetComponent<TrailRenderer>().enabled = false;
-        data.score++;
+        data.score += 3;
         Destroy(this.gameObject, 5f);
     }
 }

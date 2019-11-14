@@ -6,7 +6,7 @@ public class TouchDetection : MonoBehaviour
 {
     public TowerSwap towerSwap;
     public Camera_gyro cameraController;
-
+    Ray raycast;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +21,12 @@ public class TouchDetection : MonoBehaviour
 
         if ((Input.touchCount > 0) && (Input.GetTouch(0).phase == TouchPhase.Began))
         {
-            Ray raycast = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-            //Ray raycast = Camera.current.ScreenPointToRay(Input.GetTouch(0).position);
+            //Ray raycast = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+            if(Camera.current)
+            {
+                raycast = Camera.current.ScreenPointToRay(Input.GetTouch(0).position);
+            }
+
             RaycastHit raycastHit;
             if (Physics.Raycast(raycast, out raycastHit))
             {
