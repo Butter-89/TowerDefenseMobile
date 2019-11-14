@@ -11,8 +11,8 @@ public class CityHealthUI : MonoBehaviour
     {
         healthText.text = $"Health: {cm.HealthPercentage.ToString("0")}%";
     }
-    public void SetScoreText(AgentHealth agentHealth)
+    public void SetScoreText(GameData data)
     {
-        ScoreText.text = $"Score: {agentHealth.GetEnemyDestoriedCount.ToString() }%";
+        ScoreText.text = $"Score: {data.score.ToString() }%";
     }
 }
