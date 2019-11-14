@@ -5,12 +5,14 @@ using UnityEngine;
 public class BobHealth : MonoBehaviour
 {
     public int health = 20;
+    private bool destroyed = false;
     public AudioSource explosion;
     public GameObject explosionParticle;
     private GameData data;
     void Start()
     {
         data = GameObject.Find("GameManager").GetComponent<GameData>();
+        destroyed = false;
     }
 
 
@@ -26,8 +28,9 @@ public class BobHealth : MonoBehaviour
             //}
             health--;
             Destroy(pm.gameObject);
-            if(health<=0)
+            if(health<=0 && !destroyed)
             {
+                Debug.Log("Destroyed bob");
                 Explode();
             }
             
@@ -35,17 +38,23 @@ public class BobHealth : MonoBehaviour
     }
     public void Explode()
     {
+        Debug.Log("!!Explode");
         GameObject go = Instantiate(explosionParticle) as GameObject;
         go.transform.position = transform.position;
-        explosion.Play();
+        if(!explosion.isPlaying)
+        {
+            explosion.Play();
+        }
+        
         foreach (var renderer in GetComponentsInChildren<MeshRenderer>())
         {
             renderer.enabled = false;
         }
         
-        GetComponent<SphereCollider>().enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
         GetComponent<TrailRenderer>().enabled = false;
         data.score += 3;
+        destroyed = true;
         Destroy(this.gameObject, 5f);
     }
 }

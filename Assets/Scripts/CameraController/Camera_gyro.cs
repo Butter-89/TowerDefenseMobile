@@ -154,7 +154,7 @@ public class Camera_gyro : MonoBehaviour
                        towerTransform.rotation = initialTowerRotation;
 
                     swipe.enable = false;
-                    //MainCameraAudioListener.enabled = false;
+                    MainCameraAudioListener.enabled = false;
                     if (tagName == "Tower")
                     {
                         // canvas1.SetActive(true);

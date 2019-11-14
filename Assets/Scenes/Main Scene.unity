@@ -1152,9 +1152,9 @@ MonoBehaviour:
   - {fileID: 2017006341}
   - {fileID: 1367717379}
   - {fileID: 1362557468}
-  wait: 40
-  interval: 5
-  qty: 12
+  wait: 20
+  interval: 20
+  qty: 5
 --- !u!1001 &261013925
 PrefabInstance:
   m_ObjectHideFlags: 0

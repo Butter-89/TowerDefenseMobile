@@ -9,6 +9,7 @@ public class AgentHealth : MonoBehaviour
     public AudioSource explosion;
     public GameObject explosionParticle;
     private GameData data;
+    
     void Start()
     {
         data = GameObject.Find("GameManager").GetComponent<GameData>();
@@ -40,6 +41,7 @@ public class AgentHealth : MonoBehaviour
 
     public void Explode()
     {
+        //Debug.Log("asdasdasdasdasd");
         GameObject go = Instantiate(explosionParticle) as GameObject;
         go.transform.position = transform.position;
         explosion.Play();
