@@ -50,14 +50,9 @@ public class Shooter : MonoBehaviour
         }
     }
 
-    
-    //private void Update()
-    //{
-    //    //just for debugging purpose
-    //    if(Input.GetKeyDown(KeyCode.Alpha1))
-    //    {
-    //        Debug.Log("Shoot!");
-    //        Shoot();
-    //    }
-    //}
+    public void StopShooting()
+    {
+        this.enabled = false;
+        CancelInvoke();
+    }
 }
