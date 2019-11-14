@@ -7,15 +7,21 @@ public class Blinker : MonoBehaviour
 
     bool blinking;
 
-    public float BlinkingDuration = 2.0f;
+    public float LowAlertBlinkingDuration = 2.0f;
+    public float HighAlertBlinkingDuration = 5.0f;
+
+    private float BlinkingDuration
+    {
+        get => lowAlert ? LowAlertBlinkingDuration : HighAlertBlinkingDuration;
+    }
 
     private float BlinkingSpeed
     {
         get => lowAlert ? LowAlertBlinkingSpeed : HighAlertBlinkingSpeed;
     }
 
-    public float HighAlertBlinkingSpeed = 5.0f;
     public float LowAlertBlinkingSpeed = 2.0f;
+    public float HighAlertBlinkingSpeed = 5.0f;
     public bool StartHidden = true;
 
     private bool lowAlert = true;
