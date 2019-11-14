@@ -8,9 +8,18 @@ public class AgentHealth : MonoBehaviour
     private int count;
     public AudioSource explosion;
     public GameObject explosionParticle;
+    private GameData data;
     void Start()
     {
+        data = GameObject.Find("GameManager").GetComponent<GameData>();
         count = 0;
+    }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Explode();
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -26,7 +35,7 @@ public class AgentHealth : MonoBehaviour
             GameObject go = Instantiate(explosionParticle) as GameObject;
             go.transform.position = transform.position;
             Destroy(pm.gameObject);
-            Explosion();
+            Explode();
             Debug.Log("Destoryed!"+count);
         }
 
@@ -36,17 +45,17 @@ public class AgentHealth : MonoBehaviour
         get { return count; }
     }
 
-    public void Explosion()
+    public void Explode()
     {
-        explosion.Play();
-        Destroy(this.gameObject, 5f);
-        foreach(var renderer in GetComponentsInChildren<Renderer>())
+        //explosion.Play();
+        
+        foreach(var renderer in GetComponentsInChildren<MeshRenderer>())
         {
             renderer.enabled = false;
         }
         GetComponent<SphereCollider>().enabled = false;
         GetComponent<TrailRenderer>().enabled = false;
-        count++;
-        
+        data.score++;
+        Destroy(this.gameObject, 5f);
     }
 }
