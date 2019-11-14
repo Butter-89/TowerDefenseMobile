@@ -246,17 +246,30 @@ public class Camera_gyro : MonoBehaviour
     {
         //swipe.enable = true;
         MainCameraAudioListener.enabled = true;
+
         camera1.SetActive(false);
         audioListenerCamera1.enabled = false;
+        disableShooting(camera1);
 
         camera2.SetActive(false);
         audioListenerCamera2.enabled = false;
+        disableShooting(camera2);
 
         camera3.SetActive(false);
         audioListenerCamera3.enabled = false;
+        disableShooting(camera3);
+
         camera4.SetActive(false);
+        disableShooting(camera4);
         audioListenerCamera4.enabled = false;
     }
+
+    private void disableShooting(GameObject camera)
+    {
+        Shooter s = camera.GetComponentInParent<Shooter>();
+        s.StopShooting();
+    }
+
     private static Quaternion GyroToUnity(Quaternion gyroValues)
     {
         return new Quaternion(gyroValues.x, gyroValues.y, -gyroValues.z, -gyroValues.w);
