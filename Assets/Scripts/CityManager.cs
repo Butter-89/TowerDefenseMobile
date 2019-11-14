@@ -40,7 +40,7 @@ public class CityManager : MonoBehaviour
         if (parent)
         {
             GameObject currentCam = Camera.current.transform.parent.gameObject;
-            StartCoroutine(camShake.Shake(currentCam, 1f, 0.4f));
+            //StartCoroutine(camShake.Shake(currentCam, 1f, 0.4f));
             Destroy(parent.gameObject);
             --CityHealth;
            // Debug.Log(CityHealth);

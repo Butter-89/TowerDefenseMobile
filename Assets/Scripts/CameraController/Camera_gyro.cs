@@ -115,14 +115,6 @@ public class Camera_gyro : MonoBehaviour
         //Debug.Log("yes");
         if (isMoveCamera == true)
         {
-            Input.gyro.enabled = true;
-            // Camera gyro controller.
-            xRot = Mathf.Clamp(Input.acceleration.z, -0.35f, 0.3f) * -180f;
-            //yRot = Mathf.Clamp( Input.acceleration.x ,-0.35f, 0.3f)* 180f;
-            yRot = Input.acceleration.x * 180f;
-            zRot = 0f;
-            //camera.transform.rotation = Quaternion.Slerp(camera.transform.rotation, Quaternion.Euler(new Vector3(xRot, yRot * 1.1f, zRot)), Time.deltaTime * sensitivity);
-
             if (Input.touchCount > 0)
             {
                 Touch touchTest = Input.GetTouch(0);
@@ -144,7 +136,7 @@ public class Camera_gyro : MonoBehaviour
              fj = (Time.deltaTime) * cameraMoveAnimationSpeed / journeydis*100 ;
             //Debug.Log("this is in camera"+movePosition);
 
-            mainScreenTransform = MainCamera.transform;
+            //mainScreenTransform = MainCamera.transform;
             MainCamera.transform.position = Vector3.Lerp(MainCamera.transform.position, movePosition, fj);
             
             
@@ -165,42 +157,46 @@ public class Camera_gyro : MonoBehaviour
                     //MainCameraAudioListener.enabled = false;
                     if (tagName == "Tower")
                     {
-                         canvas1.SetActive(true); 
-                        //camera1.SetActive(true);
-                        //audioListenerCamera1.enabled = true;
-                        //camera = camera1.GetComponent<Camera>();
+                        // canvas1.SetActive(true);
+                        //MainCamera.GetComponent<Camera>().enabled = false;
+                        camera1.SetActive(true);
+                        audioListenerCamera1.enabled = true;
+                        camera = camera1.GetComponent<Camera>();
 
 
                     }
                     if (tagName == "Tower1")
                     {
-                       canvas2.SetActive(true);
-                        //camera2.SetActive(true);
+                       //canvas2.SetActive(true);
+                        camera2.SetActive(true);
 
-                        //audioListenerCamera2.enabled = true;
+                        audioListenerCamera2.enabled = true;
 
-                        //camera = camera2.GetComponent<Camera>();
+                        camera = camera2.GetComponent<Camera>();
+                       // MainCamera.GetComponent<Camera>().enabled = false;
                     }
                     if (tagName == "Tower2")
                     {
-                        canvas3.SetActive(true);
+                       // canvas3.SetActive(true);
                         // Debug.Log(movePosition);
-                        //camera3.SetActive(true);
+                        camera3.SetActive(true);
 
-                        //audioListenerCamera3.enabled = true;
+                        audioListenerCamera3.enabled = true;
 
-                        //camera = camera3.GetComponent<Camera>();
+                        camera = camera3.GetComponent<Camera>();
+                        //MainCamera.GetComponent<Camera>().enabled = false;
                     }
                     if (tagName == "Tower3")
                     {
-                        canvas4.SetActive(true);
+                       // canvas4.SetActive(true);
                         // Debug.Log(movePosition);
-                        //camera4.SetActive(true);
+                        camera4.SetActive(true);
 
-                        //audioListenerCamera4.enabled = true;
+                        audioListenerCamera4.enabled = true;
 
-                        //camera = camera4.GetComponent<Camera>();
+                        camera = camera4.GetComponent<Camera>();
                     }
+                        MainCamera.GetComponent<Camera>().enabled = false;
                     cameraRotationFlag = 1;
                 }
               //  towerTransform.rotation = camera.transform.rotation;
@@ -217,6 +213,7 @@ public class Camera_gyro : MonoBehaviour
         swipe.enable = true;
         flagMainMenu = 0;
         cameraRotationFlag = 0;
+        MainCamera.GetComponent<Camera>().enabled = true;
     }
     private void BackToMenu()
     {
@@ -262,25 +259,25 @@ public class Camera_gyro : MonoBehaviour
         MainCameraAudioListener.enabled = true;
 
         camera1.SetActive(false);
-        //camera1.SetActive(false);
-        canvas1.SetActive(false);
+      
+        
         audioListenerCamera1.enabled = false;
        // disableShooting(camera1);
 
-        //camera2.SetActive(false);
-        canvas2.SetActive(false);
+        camera2.SetActive(false);
+        
         audioListenerCamera2.enabled = false;
        // disableShooting(camera2);
 
-        //camera3.SetActive(false);
-        canvas3.SetActive(false);
+        camera3.SetActive(false);
+      
         audioListenerCamera3.enabled = false;
        // disableShooting(camera3);
 
         camera4.SetActive(false);
        // disableShooting(camera4);
-        //camera4.SetActive(false);
-        canvas4.SetActive(false);
+        
+    
         audioListenerCamera4.enabled = false;
     }
 
